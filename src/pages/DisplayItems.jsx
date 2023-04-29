@@ -1,0 +1,67 @@
+import Card from 'react-bootstrap/Card';
+import CardGroup from 'react-bootstrap/CardGroup';
+import auth from '../utils/auth';
+import { useEffect, useState } from 'react';
+import { saveProduct } from '../utils/API';
+export function DisplayItems({ items }) {
+
+    const [addItem, setAddItem] = useState([])
+    console.log(auth.getProfile())
+
+    console.log(items)
+
+    const handleButton = async (id) => {
+        // localStorage.setItem(Math.floor(Math.random() * 100), id)
+
+        const itemToSave = items.filter((item) => item.id === id)
+        console.log(itemToSave[0])
+
+        const token = auth.loggedIn() ? auth.getToken() : null;
+
+        try {
+
+            const response = await saveProduct(itemToSave[0], token)
+
+            if (!response.ok) {
+                throw new Error('something went wrong!')
+            }
+
+        } catch (err) {
+            console.error(err)
+        }
+
+
+    }
+
+    return (
+        <CardGroup className='flex flex-row flex-wrap justify-center'>
+
+            {items.map((item) => {
+                return (
+                    <>
+                        <Card className="flex flex-col justify-between border w-80 static">
+                            <Card.Img className='m-5' variant="top" src={item.image} style={{ width: "100px", height: "150px" }} />
+                            <Card.Body className='m-5'>
+                                <Card.Title>{item.title}</Card.Title>
+                            </Card.Body>
+                            <Card.Footer className='m-5 bottom-0'>
+                                <div className='flex justify-between'>
+                                    <Card.Text>
+                                        ${item.price}
+                                    </Card.Text>
+                                    {auth.loggedIn() ? <button className="rounded border-lime-500" onClick={() => handleButton(item.id)}>Add to Cart</button> : null}
+                                </div>
+
+                            </Card.Footer>
+                        </Card>
+                    </>
+
+                )
+
+
+            })}
+
+        </CardGroup>
+
+    )
+}
