@@ -6,9 +6,9 @@ import { saveProduct, getCategory } from '../utils/API';
 export function DisplayItems({ items }) {
     const [currentDisplay, setCurrentDisplay] = useState([...items])
     const [addItem, setAddItem] = useState([])
-    console.log(auth.getProfile())
 
-    console.log(currentDisplay)
+
+    // console.log(currentDisplay)
 
     const handleButton = async (id) => {
         // localStorage.setItem(Math.floor(Math.random() * 100), id)
@@ -36,7 +36,7 @@ export function DisplayItems({ items }) {
     if (!items) return <h1>Loading</h1>
     return (
         <CardGroup className='flex flex-row flex-wrap gap-10'>
-            <h1>What's trending....</h1>
+
             <div className='flex flex-wrap'>
                 {items.map((item) => {
                     return (
@@ -51,7 +51,7 @@ export function DisplayItems({ items }) {
                                         <Card.Text>
                                             ${item.price}
                                         </Card.Text>
-                                        {auth.loggedIn() ? <button className="rounded border-lime-500" onClick={() => handleButton(item.id)}>Add to Cart</button> : null}
+                                        {auth.loggedIn() ? <button className="rounded-md bg-cyan-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" onClick={() => handleButton(item.id)}>Add to Cart</button> : null}
                                     </div>
 
                                 </Card.Footer>

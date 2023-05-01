@@ -19,7 +19,8 @@ const userSchema = new Schema(
       required: true
     },
 
-    order: [productSchema]
+    order: [productSchema],
+
 
   },
   // set this to use virtual below
@@ -42,6 +43,7 @@ userSchema.pre('save', async function (next) {
 userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
+
 
 
 const User = model("User", userSchema);

@@ -33,5 +33,5 @@ export default function Profile() {
 
     console.log(userData)
 
-    return <h1>Profile</h1>
+    return <h1>coming soon...</h1>
 }

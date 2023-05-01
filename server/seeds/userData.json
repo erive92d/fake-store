@@ -33,5 +33,10 @@
     "username": "Dave and Buster",
     "email": "db@test.com",
     "password": "password10"
+  },
+  {
+    "username": "Owner",
+    "email": "owner@owner.com",
+    "password": "password10"
   }
 ]
