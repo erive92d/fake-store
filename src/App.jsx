@@ -10,7 +10,7 @@ import Profile from "./components/Profile.jsx";
 // THIS IS A TEST
 
 function App() {
-
+  window.document.title = "Sahara"
   return (
 
     <Router>

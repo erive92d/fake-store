@@ -1,4 +1,3 @@
-import Searchbar from "../pages/Searchbar"
 import auth from "../utils/auth"
 import { useEffect, useState } from "react"
 import { getMe } from "../utils/API"
@@ -25,6 +24,7 @@ export function Navtab() {
 
                 const user = await response.json();
                 setOrderLength(user.order.length)
+
 
             } catch (err) {
                 console.error(err);
