@@ -40,6 +40,9 @@ export const getMe = (token) => {
 }
 
 
+export const getAllUsers = () => {
+    return fetch('/api/users/')
+}
 
 export const allProducts = () => {
     return fetch(`https://fakestoreapi.com/products/`);

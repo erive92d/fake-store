@@ -10,6 +10,8 @@ module.exports = {
     res.json(getUsers)
   },
 
+
+
   // get a single user by either their id or their username
   async getSingleUser({ user = null, params }, res) {
     const foundUser = await User.findOne({
