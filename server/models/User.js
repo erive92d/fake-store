@@ -19,7 +19,8 @@ const userSchema = new Schema(
       required: true
     },
 
-    order: [productSchema]
+    order: [productSchema],
+
 
   },
   // set this to use virtual below
