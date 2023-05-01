@@ -48,3 +48,7 @@ export const allProducts = () => {
 export const singleProduct = (query) => {
     return fetch(`https://fakestoreapi.com/products/${query}`);
 };
+
+export const getCategory = (query) => {
+    return fetch(`https://fakestoreapi.com/products/category/${query}`)
+}

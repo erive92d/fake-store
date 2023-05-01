@@ -51,12 +51,20 @@ export default function Login() {
 
 
     return (
-        <form className="flex flex-col border items-center justify-center">
-            <label for="email">Enter Email</label>
-            <input type="email" required id="email" name="email" onChange={handleChange}></input>
-            <label for="password">Password:</label>
-            <input type="password" required id="password" name="password" onChange={handleChange}></input>
-            <button type="submit" onClick={handleSubmit}>Submit</button>
-        </form>
+        <div className="flex flex-col justify-center items-center h-80">
+            <form className="flex flex-col border items-center justify-center h-60 w-80 gap-5">
+                <div className="flex gap-2">
+                    <label for="email">Email</label>
+                    <input type="email" className="border" placeholder="johndoe@email.com" required id="email" name="email" onChange={handleChange}></input>
+                </div>
+                <div className="flex gap-2">
+                    <label for="password">Password:</label>
+                    <input type="password" className="border" placeholder="*******" required id="password" name="password" onChange={handleChange}></input>
+                </div>
+
+                <button type="submit" className="button border p-2 rounded" onClick={handleSubmit}>Submit</button>
+            </form>
+        </div>
+
     )
 }
