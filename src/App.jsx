@@ -6,6 +6,7 @@ import { Navtab } from "./components/Navtab";
 import Login from "./components/Login.jsx"
 import Cart from "./components/Cart.jsx";
 import Profile from "./components/Profile.jsx";
+import Order from "./pages/Order.jsx";
 
 // THIS IS A TEST
 
@@ -21,6 +22,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<Login />} />
           <Route path="/me" element={<Profile />} />
+          <Route path="/order" element={<Order />} />
         </Routes>
       </>
     </Router>

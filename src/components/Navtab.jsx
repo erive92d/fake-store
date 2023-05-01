@@ -5,6 +5,7 @@ import { getMe } from "../utils/API"
 export function Navtab() {
 
     const [orderLength, setOrderLength] = useState(0)
+    const [userData, setUserData] = useState({})
 
 
     useEffect(() => {
@@ -24,6 +25,7 @@ export function Navtab() {
 
                 const user = await response.json();
                 setOrderLength(user.order.length)
+                setUserData(user)
 
 
             } catch (err) {
@@ -33,7 +35,7 @@ export function Navtab() {
 
         getUserData();
     }, [orderLength])
-
+    console.log(userData)
 
     // console.log(auth.getProfile())
     return (
@@ -50,10 +52,12 @@ export function Navtab() {
                         <a href="/cart" className="font-bold px-3 py-2 text-slate-200 rounded-lg hover:bg-slate-100 hover:text-slate-900">Cart {orderLength >= 1 ? orderLength : null}</a>
                         <a href="/me" class="font-bold px-3 py-2 text-slate-200 rounded-lg hover:bg-slate-100 hover:text-slate-900">Profile</a>
                     </> : null}
+                    {userData.username === "Owner" ? <a href="/order" class="font-bold px-3 py-2 text-slate-200 rounded-lg hover:bg-slate-100 hover:text-slate-900">Orders</a> : null}
 
                     {auth.loggedIn() ? <a href="/" onClick={() => auth.logout()} className="font-bold px-3 py-2 text-slate-200 rounded-lg hover:bg-slate-100 hover:text-slate-900">Logout</a> : <a href="/login" class="font-bold px-3 py-2 text-slate-200 rounded-lg hover:bg-slate-100 hover:text-slate-900">Log In</a>
                     }
                 </div>
+
             </nav>
 
 

@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { getMe } from "../utils/API"
 import auth from "../utils/auth";
+import Button from "react-bootstrap/Button"
 import { useState } from "react";
 import { deleteProduct } from "../utils/API";
 export default function Cart() {
@@ -73,7 +74,9 @@ export default function Cart() {
             <div>
                 <h1 className='' style={{ fontSize: "50px" }}>Shopping Cart</h1>
                 <h2>Total ${Math.round(totalPrice)}</h2>
+                <button type="submit" className="rounded-md bg-blue-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" onClick={() => handleDelete(item._id)}>Checkout</button>
             </div>
+
             <div className="flex flex-wrap ">
                 {userData.order?.map((item) => {
                     return (
@@ -83,15 +86,12 @@ export default function Cart() {
                                 <h1>{item.title}</h1>
                                 {/* <p>{item.description}</p> */}
                                 <p>${item.price}</p>
+                                <div>
+                                    <button type="submit" className="rounded-md bg-red-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" onClick={() => handleDelete(item._id)}>Delete</button>
+
+                                </div>
                             </div>
-                            <div>
-                                <button onClick={() => handleDelete(item._id)}>Delete</button>
-
-                            </div>
-
-
                         </div>
-
                     )
                 })}
 
