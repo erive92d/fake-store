@@ -6,7 +6,10 @@ import { saveProduct, getCategory } from '../utils/API';
 export function DisplayItems({ items }) {
     const [currentDisplay, setCurrentDisplay] = useState([...items])
     const [addItem, setAddItem] = useState([])
-    console.log(auth.getProfile())
+    
+    if(auth.loggedIn()) {
+console.log(auth.getProfile())
+    }
 
     console.log(currentDisplay)
 
