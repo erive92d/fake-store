@@ -1,5 +1,5 @@
 export default function ({ rating }) {
-    console.log(rating)
+    // console.log(rating)
 
 
     return (

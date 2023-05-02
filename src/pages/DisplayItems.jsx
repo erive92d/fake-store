@@ -13,7 +13,7 @@ export function DisplayItems({ items }) {
 
     const handleButton = async (id) => {
         // localStorage.setItem(Math.floor(Math.random() * 100), id)
-
+      
         const itemToSave = items.filter((item) => item.id === id)
         console.log(itemToSave[0])
 
