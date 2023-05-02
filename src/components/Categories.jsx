@@ -4,7 +4,7 @@ import { getCategory } from "../utils/API"
 export default function Categories() {
     const [category, setCategory] = useState("")
     const [queryCategory, setQueryCategory] = useState([])
-
+    const [page, setPage] = useState("")
 
     const handleClick = (e) => {
         e.preventDefault()
@@ -36,17 +36,21 @@ export default function Categories() {
         <div className="flex flex-col justify-around">
             <div className="flex justify-around">
                 <div>
-                    <button onClick={handleClick} value="jewelery">Jewelry</button>
-                </div>
-                <div>
-                    <button onClick={handleClick} value="men's clothing">Men</button>
-                </div>
-                <div>
-                    <button onClick={handleClick} value="women's clothing">Women</button>
+                    <button onClick={handleClick} name="all" value="electronics">All</button>
 
                 </div>
                 <div>
-                    <button onClick={handleClick} value="electronics">Electronics</button>
+                    <button onClick={handleClick} name="jewelry" value="jewelery">Jewelry</button>
+                </div>
+                <div>
+                    <button onClick={handleClick} name="men" value="men's clothing">Men</button>
+                </div>
+                <div>
+                    <button onClick={handleClick} name="women" value="women's clothing">Women</button>
+
+                </div>
+                <div>
+                    <button onClick={handleClick} name="electronics" value="electronics">Electronics</button>
 
                 </div>
             </div>
