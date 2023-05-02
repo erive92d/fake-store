@@ -15,7 +15,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../dist"));
+  res.sendFile(path.join(__dirname, "../dist", "index.html"));
 });
 
 app.use(routes);
