@@ -12,8 +12,6 @@ export default function Categories() {
 
     }
 
-
-
     useEffect(() => {
 
         const handlePages = (cat) => {
@@ -41,10 +39,15 @@ export default function Categories() {
                     <button onClick={handleClick} value="jewelery">Jewelry</button>
                 </div>
                 <div>
-                    <button onClick={handleClick} value="men's clothing">Clothing</button>
+                    <button onClick={handleClick} value="men's clothing">Men</button>
+                </div>
+                <div>
+                    <button onClick={handleClick} value="women's clothing">Women</button>
+
                 </div>
                 <div>
                     <button onClick={handleClick} value="electronics">Electronics</button>
+
                 </div>
             </div>
 
