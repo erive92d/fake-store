@@ -8,7 +8,6 @@ import Profile from "./components/Profile.jsx";
 import Order from "./pages/Order.jsx";
 import Signup from "./components/Signup.jsx";
 
-// THIS IS A TEST
 
 function App() {
   window.document.title = "Sahara"
