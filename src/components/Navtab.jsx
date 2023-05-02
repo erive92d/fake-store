@@ -42,7 +42,7 @@ export function Navtab() {
         <div>
             <nav class="flex justify-between border space-x-4 mb-5 bg-cyan-900 text-white items-center h-20">
                 <div className="logo p-2 text-slate-200" >
-                    {auth.loggedIn() ? <h3 style={{ fontSize: "20px" }}>Hello, {auth.getProfile().data.username} </h3> : <h1 style={{ fontSize: "50px" }}>Sahara</h1>
+                    {auth.loggedIn() ? <h3 style={{ fontSize: "20px" }}>Hello, {auth.getProfile().data.username} </h3> : <h1 style={{ fontSize: "50px" }} className="font-mono font-bold">Sahara</h1>
                     }
                 </div>
 
