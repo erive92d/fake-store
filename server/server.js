@@ -22,7 +22,5 @@ app.use(express.static(path.join(__dirname, "dist", "index.html")));
 app.use(routes);
 
 db.once("open", () => {
-  app.listen(PORT, "127.0.0.1", () =>
-    console.log(`🌍 Now listening on localhost:${PORT}`)
-  );
+  app.listen(PORT, () => console.log(`🌍 Now listening on localhost:${PORT}`));
 });
