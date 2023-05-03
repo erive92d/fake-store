@@ -12,7 +12,7 @@ export default function SearchItem() {
             .then((data) => setItems(data))
     }, [])
 
-    console.log(items)
+
 
     return (
         <>

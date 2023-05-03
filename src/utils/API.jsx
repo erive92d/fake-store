@@ -1,11 +1,17 @@
+import axios from 'axios'
 export const loginUser = (userData) => {
-    return fetch('/api/users/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(userData),
-    });
+    try {
+        return fetch('/api/users/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(userData),
+        });
+    } catch (error) {
+        console.log(error)
+    }
+   
 };
 
 
@@ -31,12 +37,18 @@ export const deleteProduct = (productId, token) => {
 }
 
 export const getMe = (token) => {
-    return fetch('/api/users/me', {
-        headers: {
-            'Content-Type': 'application/json',
-            authorization: `Bearer ${token}`
-        }
-    })
+    try {
+        return fetch('/api/users/me', {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${token}`
+            }
+        })
+    } catch (err) {
+        console.error(err)
+    }
+  
 }
 
 export const createUser = (data) => {
@@ -51,7 +63,17 @@ export const createUser = (data) => {
 
 
 export const getAllUsers = () => {
-    return fetch('/api/users/')
+    try {
+        return fetch('/api/users/')
+    } catch (err) {
+        console.log(err)
+    }
+    // return fetch('/api/users/')
+    // try {
+    //     console.log(await axios.get("/api/users/")) 
+    //   } catch (e) {
+    //     console.log(e)
+    //   }
 }
 
 export const allProducts = () => {

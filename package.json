@@ -4,11 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "start": "node server/server.js",
     "build": "vite build",
-    "develop": "concurrently \"cd server && npm run watch\" \"npm run dev\"",
-    "preview": "vite preview"
+    "develop": "concurrently \"cd server && npm start\" \"npm run dev\"",
+    "preview": "vite preview",
+    "serve": "npm run build && vite preview"
   },
   "dependencies": {
     "@apollo/client": "^3.7.12",
@@ -19,9 +20,11 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "axios": "^1.4.0",
     "bcrypt": "^5.1.0",
     "bootstrap": "^4.4.1",
     "concurrently": "^8.0.1",
+    "dotenv": "^16.0.3",
     "graphql": "^16.6.0",
     "jsonwebtoken": "^9.0.0",
     "jwt-decode": "^2.2.0",

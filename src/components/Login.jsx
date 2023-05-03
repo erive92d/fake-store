@@ -12,7 +12,7 @@ export default function Login() {
     })
 
     const handleChange = (e) => {
-        console.log(e.target.value)
+   
 
         const { name, value } = e.target;
         setUserForm({ ...userForm, [name]: value });
@@ -22,7 +22,7 @@ export default function Login() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log(userForm)
+  
         try {
             const response = await loginUser(userForm)
             // auth.login(data.login.token);

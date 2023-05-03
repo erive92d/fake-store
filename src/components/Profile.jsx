@@ -31,7 +31,7 @@ export default function Profile() {
         getUserData();
     }, []);
 
-    console.log(userData)
+
 
     return <h1>coming soon...</h1>
 }

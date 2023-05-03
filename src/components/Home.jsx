@@ -22,11 +22,6 @@ export default function Home() {
     }
 
 
-
-
-
-
-    console.log(currentAPI)
     return (
         <div>
 

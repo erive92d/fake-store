@@ -11,7 +11,7 @@ export default function Searchbar() {
             .then((data) => setCurrentProducts(data))
     }, [])
 
-    console.log(currentProducts)
+   
 
     const handleChange = (e) => {
         setSearchInput(e.target.value)
@@ -23,7 +23,7 @@ export default function Searchbar() {
 
         // console.log(currentProducts[0].title.toLowerCase().split(' '))
         const itemToSearch = searchInput.toLowerCase().split(' ')
-        console.log(itemToSearch[0])
+ 
         for (let i = 0; i < currentProducts.length; i++) {
             const productTitles = currentProducts[i].title.split(' ')
 
