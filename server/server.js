@@ -20,9 +20,10 @@ app.get("/", (req, res) => {
 // app.use(express.static(path.join(__dirname, "dist", "index.html")));
 
 app.use(routes);
+const host = "127.0.0.1";
 
 db.once("open", () => {
-  app.listen(PORT, "127.0.0.1", () =>
+  app.listen(PORT, host, () =>
     console.log(`🌍 Now listening on localhost:${PORT}`)
   );
 });
