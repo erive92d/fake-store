@@ -14,13 +14,13 @@ app.use(express.json());
 //   app.use(express.static(path.join(__dirname, "dist")));
 // }
 
-// app.get("/", (req, res) => {
-//   res.sendFile(path.join(__dirname, "../dist", "../index.html"));
-// });
-app.use(express.static(path.join(__dirname, "dist", "index.html")));
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../dist", "../index.html"));
+});
+// app.use(express.static(path.join(__dirname, "dist", "index.html")));
 
 app.use(routes);
 
-db.once("open", () => {
+db.once("open", "0.0.0.0", () => {
   app.listen(PORT, () => console.log(`🌍 Now listening on localhost:${PORT}`));
 });
