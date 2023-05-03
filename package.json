@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host",
-    "start": "node server/server.js",
+    "start": "npm run dev && node server/server.js",
     "build": "vite build",
     "develop": "concurrently \"cd server && npm start\" \"npm run dev\"",
     "preview": "vite preview",
