@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host",
-    "start": "node server/server.js",
+    "dev": "vite",
+    "start": "npm run dev && node server/server.js",
     "build": "vite build",
     "develop": "concurrently \"cd server && npm start\" \"npm run dev\"",
     "preview": "vite preview",
