@@ -10,14 +10,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // if we're in production, serve client/build as static assets
-if (process.env.NODE_ENV === "production") {
-  res.sendFile(path.join(__dirname, "../dist", "../index.html"));
-}
-
-// app.get("/", (req, res) => {
+// if (process.env.NODE_ENV === "production") {
 //   res.sendFile(path.join(__dirname, "../dist", "../index.html"));
-// });
-app.use(express.static(path.join(__dirname, "dist", "index.html")));
+// }
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../dist", "../index.html"));
+});
+// app.use(express.static(path.join(__dirname, "dist", "index.html")));
 
 app.use(routes);
 const host = "0.0.0.0";
