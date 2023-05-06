@@ -20,6 +20,12 @@ if (process.env.NODE_ENV === "production") {
     // res.sendFile(path.join(__dirname, "../dist", "index.html"));
     res.sendFile(path.join(__dirname, "../dist"));
   });
+  app.use((req, res, next) => {
+    if (req.url.endsWith(".js")) {
+      res.type("application/javascript");
+    }
+    next();
+  });
 }
 
 app.get("/", (req, res) => {
