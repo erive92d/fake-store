@@ -11,14 +11,14 @@ app.use(express.json());
 
 // if we're in production, serve client/build as static assets
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("dist"));
-  app.get("/*", (req, res) => {
+  app.use(express.static(path.join(__dirname, "dist")));
+  app.get("*", (req, res) => {
     // res.sendFile(path.join(__dirname, "../index.html"));
     // res.sendFile(path.join(__dirname, "/dist/index.html"));
     // res.sendFile(path.join(__dirname, "../dist/index.html"));
     // res.sendFile(path.join(__dirname, "../dist")); WORKING ONLY API
     // res.sendFile(path.join(__dirname, "../dist", "index.html"));
-    res.sendFile(path.join(__dirname, "../dist"));
+    res.sendFile(path.join(__dirname, "dist", "index.html"));
   });
 }
 
