@@ -9,14 +9,14 @@ export default defineConfig({
     // host: true,
     // port: "8080",
     // hot: true,
-    proxy: {
-      "/api": {
-        target: "http://0.0.0.0:5000/",
-        changeOrigin: true,
-        secure: false,
-        ws: true,
-      },
-    },
+    // proxy: {
+    //   "/api": {
+    //     target: "http://0.0.0.0:5000/",
+    //     changeOrigin: true,
+    //     secure: false,
+    //     ws: true,
+    //   },
+    // },
   },
   build: {
     outDir: "dist",
