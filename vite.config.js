@@ -18,7 +18,4 @@ export default defineConfig({
       },
     },
   },
-  build: {
-    outDir: "dist/src",
-  },
 });
