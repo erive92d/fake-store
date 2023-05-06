@@ -3,11 +3,11 @@ import { getAllUsers } from "../utils/API"
 
 export default function ({ rating }) {
     // console.log(rating)
-    useEffect(()=> {
-        getAllUsers()
-        .then((response)=>response.json())
-        .then((data) =>console.log(data))
-    },[])
+    // useEffect(()=> {
+    //     getAllUsers()
+    //     .then((response)=>response.json())
+    //     .then((data) =>console.log(data))
+    // },[])
 
     return (
         <div className="text-right">
