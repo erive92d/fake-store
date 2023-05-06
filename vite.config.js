@@ -10,11 +10,14 @@ export default defineConfig({
     // hot: true,
     proxy: {
       "/api": {
-        target: "http://0.0.0.0:8000/",
+        target: "http://0.0.0.0:5000/",
         changeOrigin: true,
         secure: false,
         ws: true,
       },
     },
   },
+  // build: {
+  //   outDir: "dist/src",
+  // },
 });
