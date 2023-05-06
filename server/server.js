@@ -16,7 +16,8 @@ if (process.env.NODE_ENV === "production") {
     // res.sendFile(path.join(__dirname, "../index.html"));
     // res.sendFile(path.join(__dirname, "/dist/index.html"));
     // res.sendFile(path.join(__dirname, "../dist/index.html"));
-    res.sendFile(path.join(__dirname, "../dist"));
+    // res.sendFile(path.join(__dirname, "../dist")); <-- API WORKS BUT NOT ROUTING
+    res.sendFile(path.join(__dirname, "dist", "index.html"));
   });
 }
 
