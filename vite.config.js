@@ -22,7 +22,7 @@ export default defineConfig({
     outDir: "dist",
     assetsDir: "static",
     rollupOptions: {
-      input: "src/main.jsx",
+      input: "index.html",
     },
   },
 });
