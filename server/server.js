@@ -18,7 +18,7 @@ if (process.env.NODE_ENV === "production") {
     // res.sendFile(path.join(__dirname, "../dist/index.html"));
     // res.sendFile(path.join(__dirname, "../dist")); WORKING ONLY API
     // res.sendFile(path.join(__dirname, "../dist", "index.html"));
-    res.sendFile(path.join(__dirname, "dist", "index.html"));
+    res.sendFile(path.join(__dirname, "/dist/index.html"));
   });
 }
 
