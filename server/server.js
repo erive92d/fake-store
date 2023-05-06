@@ -31,7 +31,7 @@ app.use(routes);
 const host = "0.0.0.0";
 
 db.once("open", () => {
-  app.listen(PORT, function () {
+  app.listen(PORT, host, function () {
     console.log(`🌍 Now listening on localhost:${PORT}`);
   });
 });
