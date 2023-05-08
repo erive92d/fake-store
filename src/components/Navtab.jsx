@@ -41,15 +41,13 @@ export function Navtab() {
     return (
       <Navbar
   fluid={true}
-
 >
   <Navbar.Brand
+    href="/"
    
-    to="/"
   >
-    
-    <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-      Sahara
+    <span  style={{fontSize:"40px"}} className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+    <i class="fa fa-store"></i> Sahara
     </span>
   </Navbar.Brand>
   <Navbar.Toggle />
