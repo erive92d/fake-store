@@ -7,7 +7,8 @@ import Cart from "./components/Cart.jsx";
 import Profile from "./components/Profile.jsx";
 import Order from "./pages/Order.jsx";
 import Signup from "./components/Signup.jsx";
-
+import ItemDetail from "./components/ItemDetail.jsx";
+import Footer from "./components/Footer.jsx";
 
 function App() {
   window.document.title = "Sahara"
@@ -23,8 +24,9 @@ function App() {
           <Route path="/me" element={<Profile />} />
           <Route path="/order" element={<Order />} />
           <Route path="/signup" element={<Signup />} />
-
+          <Route path="/item/:itemId" element={< ItemDetail />} />
         </Routes>
+        <Footer />
       </>
     </Router>
 

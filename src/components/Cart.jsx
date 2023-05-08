@@ -39,7 +39,7 @@ export default function Cart() {
         getUserData();
     }, []);
 
-    // console.log(userData)
+    console.log(userData)
     if (!userData) {
         return <h1>Loading</h1>
     }

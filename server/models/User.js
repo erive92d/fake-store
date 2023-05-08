@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
-const productSchema = require("./Product")
+const productSchema = require("./Product");
 const userSchema = new Schema(
   {
     username: {
@@ -16,12 +16,10 @@ const userSchema = new Schema(
     },
     password: {
       type: String,
-      required: true
+      required: true,
     },
 
     order: [productSchema],
-
-
   },
   // set this to use virtual below
   {
@@ -30,8 +28,8 @@ const userSchema = new Schema(
     },
   }
 );
-userSchema.pre('save', async function (next) {
-  if (this.isNew || this.isModified('password')) {
+userSchema.pre("save", async function (next) {
+  if (this.isNew || this.isModified("password")) {
     const saltRounds = 10;
     this.password = await bcrypt.hash(this.password, saltRounds);
   }
@@ -43,8 +41,6 @@ userSchema.pre('save', async function (next) {
 userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
-
-
 
 const User = model("User", userSchema);
 
