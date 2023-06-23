@@ -8,7 +8,6 @@ connection.on("error", (err) => err);
 connection.once("open", async () => {
   console.log("connected");
 
-  const pwd = "password10"; //PROCESS.env.USER_PASSWORD;-----> need to figure thisout
   try {
     // Drop existing users
     await User.deleteMany({});

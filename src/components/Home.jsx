@@ -8,6 +8,8 @@ import CardGroup from 'react-bootstrap/CardGroup';
 import { saveProduct, getCategory ,allProducts} from '../utils/API';
 import Reviews from '../pages/Reviews'
 import CatHeader from "./CatHeader";
+import Featured from "../pages/Featured";
+import FeaturedNew from "../pages/FeaturedNew";
 
 export default function Home() {
 
@@ -42,7 +44,10 @@ export default function Home() {
     </div>
     )}
 
+  
 
+    // const featuredItem = items?.filter((prod) => prod.id === Math.floor(Math.random()*20))
+    //     console.log(featuredItem)
     return (
         <div className="my-5">
            
@@ -59,12 +64,14 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-            {/* <CatHeader category={currentCategory}/> */}
+            <Featured featuredItem={items}/>
+            {/* <FeaturedNew items={items}/> */}
             
             <CardGroup className='flex flex-row flex-wrap justify-center gap-10'>
-            
+          
+
             <div className='flex flex-wrap justify-center'>
-       
+
                 {items.map((item) => {
                     
                     return (
@@ -94,8 +101,6 @@ export default function Home() {
                         </>
 
                     )
-
-
                 })}
             </div>
 

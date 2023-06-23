@@ -1,5 +1,5 @@
 // import user model
-const { User, Order } = require("../models");
+const { User, Order, Review } = require("../models");
 // import sign token function from auth
 const { signToken } = require("../utils/auth");
 
@@ -13,6 +13,7 @@ module.exports = {
 
   // get a single user by either their id or their username
   async getSingleUser({ user = null, params }, res) {
+    console.log(user);
     const foundUser = await User.findOne({
       $or: [
         { _id: user ? user._id : params.id },
@@ -97,5 +98,30 @@ module.exports = {
         .json({ message: "Couldn't find user with this id!" });
     }
     return res.json(updatedUser);
+  },
+  async makeReview({ user = null, body, params }, res) {
+    console.log(user, "@user");
+
+    const userReview = await User.findOneAndUpdate(
+      {
+        $or: [
+          { _id: user ? user._id : params.id },
+          { username: body.username },
+        ],
+      },
+      {
+        $addToSet: {
+          review: { productId: params.productId, textBody: body.body },
+        },
+      },
+      {
+        new: true,
+      }
+    );
+
+    if (!userReview) {
+      return res.status(404).json({ message: "Couldn't make a review" });
+    }
+    return res.json(userReview);
   },
 };

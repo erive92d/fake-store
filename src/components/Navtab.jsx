@@ -4,7 +4,6 @@ import { getMe } from "../utils/API"
 import { Navbar } from "flowbite-react"
 export function Navtab() {
 
-    const [orderLength, setOrderLength] = useState(0)
     const [userData, setUserData] = useState({})
 
 
@@ -24,7 +23,6 @@ export function Navtab() {
                 }
 
                 const user = await response.json();
-                setOrderLength(user.order.length)
                 setUserData(user)
 
 
@@ -34,10 +32,9 @@ export function Navtab() {
         };
 
         getUserData();
-    }, [orderLength])
+    }, [])
 
 
- 
     return (
       <Navbar
   fluid={true}
@@ -61,7 +58,7 @@ export function Navtab() {
     
     {auth.loggedIn() ? <>
       <Navbar.Link href="/cart">
-      Cart {orderLength >= 1 ? orderLength : null}
+      Cart {userData.orderCount >= 1 ? userData.orderCount : null}
     </Navbar.Link>
     {/* <Navbar.Link href="/profile">
       Profile

@@ -13,11 +13,6 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../dist")));
   app.get("*", (req, res) => {
-    // res.sendFile(path.join(__dirname, "../index.html"));
-    // res.sendFile(path.join(__dirname, "/dist/index.html"));
-    // res.sendFile(path.join(__dirname, "../dist/index.html"));
-    // res.sendFile(path.join(__dirname, "../dist")); WORKING ONLY API
-    // res.sendFile(path.join(__dirname, "../dist", "index.html"));
     res.sendFile(path.join(__dirname, "../dist"));
   });
   app.use((req, res, next) => {
@@ -31,10 +26,8 @@ if (process.env.NODE_ENV === "production") {
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../index.html"));
 });
-// app.use(express.static(path.join(__dirname, "dist", "index.html")));
 
 app.use(routes);
-const host = "0.0.0.0";
 
 db.once("open", () => {
   app.listen(PORT, function () {

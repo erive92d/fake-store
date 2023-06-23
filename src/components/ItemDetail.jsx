@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom"
 import { allProducts } from "../utils/API"
 import auth from "../utils/auth"
 import AddButton from "./AddButton"
+import Feedbacks from "../pages/Feedbacks"
 export default function ItemDetail () {
 
    
@@ -21,6 +22,8 @@ export default function ItemDetail () {
         .then((res) => res.json())
         .then((data) => getItem(data))
     },[])
+
+
     console.log(itemDetail)
     if(!itemDetail[0]){ 
         return (
@@ -54,6 +57,8 @@ export default function ItemDetail () {
                 ${itemDetail[0]?.price}
             </p>
         </div>
+        <Feedbacks item={itemDetail[0]}/>
+
         <div>
             <p class="font-bold italic">
                 {itemDetail[0]?.description}
@@ -62,6 +67,7 @@ export default function ItemDetail () {
         <div class="flex items-center justify-between">
         <AddButton itemId={itemDetail[0]?.id}/>
             </div>
+    
     </div>
 </div> 
 
