@@ -49,7 +49,7 @@ export default function AddButton ({itemId}) {
     }
 
     return (
-        <div>
+        <div className='p-2 text-center'>
              <button className="rounded-md bg-cyan-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" onClick={() => handleButton(itemId)}>
                     Add to Cart
             </button>

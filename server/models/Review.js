@@ -7,7 +7,7 @@ const reviewSchema = new Schema({
   },
 
   productId: {
-    type: String,
+    type: Number,
     required: true,
   },
 });

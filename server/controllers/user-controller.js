@@ -111,7 +111,7 @@ module.exports = {
       },
       {
         $addToSet: {
-          review: { productId: params.productId, textBody: body.body },
+          review: { productId: params.productId, textBody: body.textBody },
         },
       },
       {

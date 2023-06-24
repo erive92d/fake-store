@@ -39,34 +39,35 @@ export default function ItemDetail () {
     </div>
     )}
 
-    console.log(itemDetail[0])
+
 
     return (
 
- <div class="w-full mx-auto max-w-sm  my-5">
-    <a href="#">
-        <img class="p-8 rounded-t-lg" src={itemDetail[0]?.image} />
-    </a>
-    <div class="flex flex-col gap-5">
-        <a href="#">
-            <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{itemDetail[0]?.title}</h5>
-        </a>
-        <div>
-            <p class="font-bold">
+ <div class="w-full mx-auto">
+      <div className="bg-yellow-600">
+            <p class="font-bold text-xl text-right p-2 font-mono ">
                 
                 ${itemDetail[0]?.price}
             </p>
         </div>
-        <Feedbacks item={itemDetail[0]}/>
+    <div className="p-2 ">
+        <img class="p-8 rounded-t-lg" src={itemDetail[0]?.image} />
+    </div>
+    <div class="flex flex-col gap-5">
+        <a href="#">
+            <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{itemDetail[0]?.title}</h5>
+        </a>
+      
 
-        <div>
-            <p class="font-bold italic">
+        <div className="p-2">
+            <p class="font-bold text-sm text-gray-400 italic">
                 {itemDetail[0]?.description}
             </p>
         </div>
-        <div class="flex items-center justify-between">
+        
         <AddButton itemId={itemDetail[0]?.id}/>
-            </div>
+
+        <Feedbacks item={itemDetail[0]}/>
     
     </div>
 </div> 

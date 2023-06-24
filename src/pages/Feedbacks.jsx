@@ -4,43 +4,60 @@ import { getAllUsers } from "../utils/API";
 export default function Feedbacks ({item}) {
     const [reviews, setReviews] = useState({})
     const [userReviews, setUserReviews] = useState([])
+
+
+
     useEffect(()=>{
-        const getReviews = () => {
+       
+  
+        const getReviews = async (reviewItems) => {
             let arrayReviews = []
-            for(let i = 0; i < reviews.length; i++) {
-                if(reviews[i].review.length !== 0) {
-                    arrayReviews = [...reviews[i].review]
+  
+         
+            for(let i = 0; i < reviewItems.length; i++) {
+                if(reviewItems[i].review.length !== 0) {
+                    arrayReviews = [...reviewItems[i].review]
     
                 }
             }
-    
+  
             setUserReviews(arrayReviews)
         }
 
         getAllUsers()
         .then((res)=>res.json())
-        .then(((data) => setReviews(data)  ))
+        .then(((data) => getReviews(data)  ))
 
+   
         getReviews()
-
-       
 
     },[])
 
-    
 
-    console.log(userReviews)
+    console.log(userReviews, "TEST")
 
 
-    console.log(reviews)
+
+    const actualRev = userReviews?.filter((revs) => revs.productId === item.id)
+    console.log(actualRev)
+
     if(!reviews) return <h1>Loading</h1>
 
 
     return (
         <div className="border">
-            {/* {getReviews().map((item) => {
-                <p>{item.textBody}</p>
+            {actualRev?.map((rev) => {
+                return (
+                    <div>
+                        {rev.textBody}
+                    </div>
+                )
+            })}
+            {/* {userReviews.map((rev) => {
+                {rev.productId === item.id ? <h1>True</h1> : <h1>False</h1>}
             })} */}
+            {/* {userReviews.map((rev) => (<h1>{Number(rev.productId)}</h1>))} */}
+            
         </div>
     )
 
