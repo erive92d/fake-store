@@ -20,9 +20,9 @@ const userSchema = new Schema(
     },
 
     order: [productSchema],
-
-
+    
   },
+
   // set this to use virtual below
   {
     toJSON: {
