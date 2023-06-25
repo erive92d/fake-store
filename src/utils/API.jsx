@@ -11,7 +11,7 @@ export const loginUser = (userData) => {
     } catch (error) {
         console.log(error)
     }
-   
+
 };
 
 
@@ -48,7 +48,7 @@ export const getMe = (token) => {
     } catch (err) {
         console.error(err)
     }
-  
+
 }
 
 export const createUser = (data) => {
@@ -74,6 +74,22 @@ export const getAllUsers = () => {
     //   } catch (e) {
     //     console.log(e)
     //   }
+}
+
+export const leaveFeedback = (token, input, productId) => {
+    try {
+        return fetch(`/api/users/products/${productId}`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${token}`
+            },
+            body: JSON.stringify(input)
+        })
+    }
+    catch (e) {
+        console.log(e, 'api error')
+    }
 }
 
 export const allProducts = () => {

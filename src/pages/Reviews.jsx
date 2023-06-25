@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import { getAllUsers } from "../utils/API"
 
 export default function ({ rating }) {
-    // console.log(rating)
+    // // console.log(rating)
     // useEffect(()=> {
     //     getAllUsers()
     //     .then((response)=>response.json())
