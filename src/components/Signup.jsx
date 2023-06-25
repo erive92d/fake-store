@@ -14,7 +14,7 @@ export default function Signup() {
     })
 
     const handleChange = (e) => {
-        console.log(e.target.value)
+
 
         const { name, value } = e.target;
         setUserForm({ ...userForm, [name]: value });
@@ -22,7 +22,7 @@ export default function Signup() {
 
     const handleSignup = async (e) => {
         e.preventDefault()
-        console.log(userForm)
+
         try {
             const response = await createUser(userForm)
 

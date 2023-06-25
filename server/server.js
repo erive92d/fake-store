@@ -4,18 +4,33 @@ const db = require("./config/connection");
 const routes = require("./routes");
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 5000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // if we're in production, serve client/build as static assets
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../client/build")));
+  app.use(express.static(path.join(__dirname, "../dist")));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../dist"));
+  });
+  app.use((req, res, next) => {
+    if (req.url.endsWith(".js")) {
+      res.type("application/javascript");
+    }
+    next();
+  });
 }
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../index.html"));
+});
 
 app.use(routes);
 
 db.once("open", () => {
-  app.listen(PORT, () => console.log(`🌍 Now listening on localhost:${PORT}`));
+  app.listen(PORT, function () {
+    console.log(`🌍 Now listening on localhost:${PORT}`);
+  });
 });

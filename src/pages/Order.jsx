@@ -9,9 +9,8 @@ export default function Order() {
             .then((data) => setUserOrders(data))
     }, [])
 
-    console.log(userOrders)
     const filledOrders = userOrders?.filter((user) => user.order.length >= 1)
-    console.log(filledOrders)
+   
 
 
     return (

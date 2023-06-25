@@ -7,7 +7,7 @@ import { deleteProduct } from "../utils/API";
 export default function Cart() {
     const [userData, setUserData] = useState({})
     const token = auth.loggedIn() ? auth.getToken() : null;
-    console.log(token)
+    // console.log(token)
 
     useEffect(() => {
 
@@ -24,8 +24,12 @@ export default function Cart() {
                 if (!response.ok) {
                     throw new Error('something went wrong!');
                 }
+                // console.log(response)
+                
 
                 const user = await response.json();
+                
+                // console.log(user,'XXXXXXXXXXXXX')
                 setUserData(user);
             } catch (err) {
                 console.error(err);
