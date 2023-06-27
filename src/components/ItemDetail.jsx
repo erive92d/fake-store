@@ -46,7 +46,7 @@ export default function ItemDetail() {
     return (
 
         <div class="w-full mx-auto">
-            <div className="bg-yellow-600">
+            <div className="bg-yellow-500">
                 <p class="font-bold text-xl text-right p-2 font-mono ">
 
                     ${itemDetail[0]?.price}
@@ -57,7 +57,7 @@ export default function ItemDetail() {
             </div>
             <div class="flex flex-col gap-5">
                 <a href="#">
-                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{itemDetail[0]?.title}</h5>
+                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white p-2">{itemDetail[0]?.title}</h5>
                 </a>
 
 

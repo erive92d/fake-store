@@ -87,7 +87,7 @@ export default function Home() {
 
                             <>
 
-                                <Card className="flex flex-col justify-between border  w-80 static">
+                                <Card className="flex flex-col justify-between border my-2 rounded w-80 static">
                                     <Reviews rating={item.rating} />
                                     <Card.Img className='m-5' variant="top" src={item.image} style={{ width: "100px", height: "150px" }} />
                                     <Card.Body className='m-5'>
