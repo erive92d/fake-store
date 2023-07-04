@@ -47,7 +47,7 @@ export function DisplayItems({ items }) {
                     </div> : items.map((item) => {
                         return (
                             <>
-                                <Card className="flex flex-col justify-between border  w-80 static">
+                                <Card className="flex flex-col justify-between w-80 static">
                                     <Reviews rating={item.rating} />
                                     <Card.Img className='m-5' variant="top" src={item.image} style={{ width: "100px", height: "150px" }} />
                                     <Card.Body className='m-5'>

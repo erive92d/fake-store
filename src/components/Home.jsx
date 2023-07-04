@@ -9,32 +9,17 @@ import { saveProduct, getCategory, allProducts } from '../utils/API';
 import Reviews from '../pages/Reviews'
 import CatHeader from "./CatHeader";
 import Featured from "../pages/Featured";
-import FeaturedNew from "../pages/FeaturedNew";
+import CarouselItems from "../pages/Carousel";
+import CatCar from "../pages/CatCar";
 
 export default function Home() {
 
     const [items, setItems] = useState([])
-    const [currentAPI, setCurrentAPI] = useState(allProducts())
-    const [currentCategory, setCurrentCategory] = useState("")
     useEffect(() => {
-        currentAPI
+        allProducts()
             .then((res) => res.json())
             .then((data) => setItems(data))
-    }, [currentAPI])
-
-    const handleClick = (e) => {
-
-        e.preventDefault()
-        const catName = e.target.value
-        setCurrentCategory(catName)
-        console.log(catName)
-        if (catName === "all") {
-            setCurrentAPI(allProducts())
-            return
-        }
-
-        setCurrentAPI(getCategory(catName))
-    }
+    }, [])
 
     if (!items[0]) {
         return (
@@ -56,66 +41,11 @@ export default function Home() {
     // const featuredItem = items?.filter((prod) => prod.id === Math.floor(Math.random()*20))
     //     console.log(featuredItem)
     return (
-        <div className="my-5 min-w-screen">
+        <div className="my-5">
 
-            <div class="">
-                <div class="flex flex-col" aria-orientation="horizontal" role="tablist">
-                    <button id="tabs-1-tab-2" name="all" onClick={handleClick} value="all" class="border-transparent text-gray-900 flex-1 whitespace-nowrap border-b-2 px-1 py-4 text-base font-medium" aria-controls="tabs-1-panel-2" role="tab" type="button">All</button>
-
-                    {/* <!-- Selected: "border-indigo-600 text-indigo-600", Not Selected: "border-transparent text-gray-900" --> */}
-                    <button id="men" name="all" onClick={handleClick} value="men's clothing" class="border-transparent text-gray-900 flex-1 whitespace-nowrap border-b-2 px-1 py-4 text-base font-medium" aria-controls="tabs-1-panel-1" role="tab" type="button">Men</button>
-                    <button id="women" name="all" onClick={handleClick} value="women's clothing" class="border-transparent text-gray-900 flex-1 whitespace-nowrap border-b-2 px-1 py-4 text-base font-medium" aria-controls="tabs-1-panel-1" role="tab" type="button">Women</button>
-
-                    {/* <!-- Selected: "border-indigo-600 text-indigo-600", Not Selected: "border-transparent text-gray-900" --> */}
-                    <button id="tabs-1-tab-2" name="all" onClick={handleClick} value="electronics" class="border-transparent text-gray-900 flex-1 whitespace-nowrap border-b-2 px-1 py-4 text-base font-medium" aria-controls="tabs-1-panel-2" role="tab" type="button">Electronics</button>
-                    <button id="tabs-1-tab-2" name="all" onClick={handleClick} value="jewelery" class="border-transparent text-gray-900 flex-1 whitespace-nowrap border-b-2 px-1 py-4 text-base font-medium" aria-controls="tabs-1-panel-2" role="tab" type="button">Jewelry</button>
-                </div>
-
-            </div>
-
-
-            {/* <Featured featuredItem={items} /> */}
-            {/* <FeaturedNew items={items}/> */}
-
-            {/* <CardGroup className='flex flex-row flex-wrap justify-center gap-10'>
-
-
-                <div className='flex flex-wrap justify-center'>
-
-                    {items.map((item) => {
-
-                        return (
-
-                            <>
-
-                                <Card className="flex flex-col justify-between border my-2 rounded w-80 static">
-                                    <Reviews rating={item.rating} />
-                                    <Card.Img className='m-5' variant="top" src={item.image} style={{ width: "100px", height: "150px" }} />
-                                    <Card.Body className='m-5'>
-                                        <Card.Title><Link to={`/item/${item.id}`}>{item.title}</Link></Card.Title>
-                                    </Card.Body>
-                                    <Card.Footer className='m-5 bottom-0'>
-                                        <div className='flex justify-between'>
-                                            <Card.Text className="font-bold text-xl">
-                                                ${item.price}
-                                            </Card.Text>
-
-
-                                            <AddButton itemId={item.id} />
-
-
-                                        </div>
-
-                                    </Card.Footer>
-                                </Card>
-                            </>
-
-                        )
-                    })}
-                </div>
-
-
-            </CardGroup> */}
+            <Featured featuredItem={items} />
+            {/* <CarouselItems items={items}/> */}
+            <CatCar items={items} />
 
 
         </div>

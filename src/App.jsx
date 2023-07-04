@@ -15,8 +15,9 @@ function App() {
   return (
 
     <Router>
-      <div className="">
-        <Navtab />
+
+      <Navtab />
+      <div className="min-w-full bg-gray-300 p-5">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
@@ -26,8 +27,9 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/item/:itemId" element={< ItemDetail />} />
         </Routes>
-        {/* <Footer /> */}
+
       </div>
+      <Footer />
     </Router>
 
   );
