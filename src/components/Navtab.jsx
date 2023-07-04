@@ -53,12 +53,12 @@ export function Navtab() {
       href="/"
       active={true}
     >
-      Home
+      <i class="fa-solid fa-house"></i>
     </Navbar.Link>
     
     {auth.loggedIn() ? <>
       <Navbar.Link href="/cart">
-      Cart {userData.orderCount >= 1 ? userData.orderCount : null}
+      <i class="fa-solid fa-cart-shopping"></i> {userData.orderCount >= 1 ? userData.orderCount : null}
     </Navbar.Link>
     {/* <Navbar.Link href="/profile">
       Profile

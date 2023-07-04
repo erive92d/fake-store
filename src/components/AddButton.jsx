@@ -50,8 +50,8 @@ export default function AddButton ({itemId}) {
 
     return (
         <div className='py-2'>
-             <button className="rounded-md bg-cyan-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" onClick={() => handleButton(itemId)}>
-                    Add to Cart
+             <button className="rounded-md text-black px-3 py-1.5 text-xl font-semibold leading-6 shadow-sm hover:bg-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" onClick={() => handleButton(itemId)}>
+             <i class="fa-solid fa-cart-plus"></i>
             </button>
     </div>
     )

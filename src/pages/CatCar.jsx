@@ -38,10 +38,10 @@ export default function CatCar() {
 {mens.map((item) => {
  return (
   <>
-     <a key={item.id} href={`/item/${item.id}`} className='flex space-x-10 p-10'>
+     <a key={item.id} href={`/item/${item.id}`} className='flex space-x-10 p-10  items-center'>
      <img alt="..." src={item.image} className='w-1/2' />
      <div className='space-y-5 w-100'>
-     <h1>{item.title}</h1>
+     <h1 className='font-thin text-lg'>{item.title}</h1>
 <p className='text-green-800 font-bold'>${item.price}</p>
 <AddButton itemId={item.id} />
      </div>
@@ -64,7 +64,7 @@ export default function CatCar() {
      <a key={item.id} href={`/item/${item.id}`} className='flex space-x-10 p-10'>
      <img alt="..." src={item.image} className='w-1/2' />
      <div className='space-y-5 w-100'>
-     <h1>{item.title}</h1>
+     <h1 className='font-thin text-lg'>{item.title}</h1>
 <p className='text-green-800 font-bold'>${item.price}</p>
 <AddButton itemId={item.id} />
      </div>
@@ -82,10 +82,10 @@ export default function CatCar() {
         {electronics.map((item) => {
  return (
   <>
-     <a key={item.id} href={`/item/${item.id}`} className='flex space-x-10 p-10'>
+     <a key={item.id} href={`/item/${item.id}`} className='flex space-x-10 p-10 '>
      <img alt="..." src={item.image} className='w-1/2' />
      <div className='space-y-5 w-100'>
-     <h1>{item.title}</h1>
+     <h1 className='font-thin text-lg'>{item.title}</h1>
 <p className='text-green-800 font-bold'>${item.price}</p>
 <AddButton itemId={item.id} />
      </div>
@@ -102,10 +102,10 @@ export default function CatCar() {
   {jewelry.map((item) => {
  return (
   <>
-     <a key={item.id} href={`/item/${item.id}`} className='flex space-x-10 p-10'>
+     <a key={item.id} href={`/item/${item.id}`} className='flex space-x-10 p-10 justify-center'>
      <img alt="..." src={item.image} className='w-1/2' />
      <div className='space-y-5 w-100'>
-     <h1>{item.title}</h1>
+     <h1 className='font-thin text-lg'>{item.title}</h1>
 <p className='text-green-800 font-bold'>${item.price}</p>
 <AddButton itemId={item.id} />
      </div>

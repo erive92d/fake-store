@@ -68,10 +68,10 @@ export default function Feedbacks ({item}) {
     if(!reviews) return <h1>Loading</h1>
     return (
         <div className="border">
-            <h1 className="font-bold text-xl text-center">Reviews</h1>
+            <h1 className="font-bold text-xl">Reviews</h1>
 
             <div>
-                {actualRev?.map((rev) => <p key={rev._id}>{rev.textBody} by </p>)}
+                {actualRev?.map((rev) => <p key={rev._id}>{rev.textBody} by Anon </p>)}
             </div>
          
         </div>
