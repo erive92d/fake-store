@@ -9,34 +9,17 @@ import { saveProduct, getCategory, allProducts } from '../utils/API';
 import Reviews from '../pages/Reviews'
 import CatHeader from "./CatHeader";
 import Featured from "../pages/Featured";
-import FeaturedNew from "../pages/FeaturedNew";
 import CarouselItems from "../pages/Carousel";
 import CatCar from "../pages/CatCar";
 
 export default function Home() {
 
     const [items, setItems] = useState([])
-    const [currentAPI, setCurrentAPI] = useState(allProducts())
-    const [currentCategory, setCurrentCategory] = useState("")
     useEffect(() => {
-        currentAPI
+        allProducts()
             .then((res) => res.json())
             .then((data) => setItems(data))
-    }, [currentAPI])
-
-    const handleClick = (e) => {
-
-        e.preventDefault()
-        const catName = e.target.value
-        setCurrentCategory(catName)
-        console.log(catName)
-        if (catName === "all") {
-            setCurrentAPI(allProducts())
-            return
-        }
-
-        setCurrentAPI(getCategory(catName))
-    }
+    }, [])
 
     if (!items[0]) {
         return (
