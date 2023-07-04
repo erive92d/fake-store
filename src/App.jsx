@@ -15,7 +15,7 @@ function App() {
   return (
 
     <Router>
-      <>
+      <div className="">
         <Navtab />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -26,8 +26,8 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/item/:itemId" element={< ItemDetail />} />
         </Routes>
-        <Footer />
-      </>
+        {/* <Footer /> */}
+      </div>
     </Router>
 
   );

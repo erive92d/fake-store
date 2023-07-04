@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { getAllUsers } from "../utils/API"
-
+import { useState } from "react"
 export default function ({ rating }) {
     // // console.log(rating)
     // useEffect(()=> {
@@ -8,6 +8,7 @@ export default function ({ rating }) {
     //     .then((response)=>response.json())
     //     .then((data) =>console.log(data))
     // },[])
+
 
     return (
         <div className="text-right">
