@@ -43,7 +43,7 @@ export function Navtab() {
     href="/"
    
   >
-    <span  style={{fontSize:"40px"}} className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+    <span  style={{fontSize:"30px"}} className="self-center whitespace-nowrap text-lg font-semibold dark:text-white">
     <i class="fa fa-store"></i> Sahara
     </span>
   </Navbar.Brand>
