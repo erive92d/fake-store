@@ -6,7 +6,7 @@ import AddButton from '../components/AddButton';
 export default function CarouselItems({items}) {
     console.log(items)
   return (
-    <Carousel indicators={false} className='border h-80 bg-black my-5 rounded'>
+    <Carousel indicators={false} slide={false} className='border h-80 bg-white my-5 rounded'>
         {items.map((item) => {
             return (
                 <>

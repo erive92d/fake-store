@@ -33,7 +33,7 @@ export default function CatCar() {
     <div className='my-5'>
      
     <h1 className='text-xl font-bold'>Mens</h1>
-    <Carousel indicators={false} className='border h-60 bg-white my-5 rounded'>
+    <Carousel indicators={false} slideInterval={5000} className='border h-60 bg-white my-5 rounded'>
 
 {mens.map((item) => {
  return (
@@ -56,7 +56,7 @@ export default function CatCar() {
  
 
     <h1  className='text-xl font-bold'>Womens</h1>
-<Carousel indicators={false} className='border h-80 bg-white my-5 rounded'>
+<Carousel slideInterval={7000} indicators={false} className='border h-80 bg-white my-5 rounded'>
 
 {womens.map((item) => {
  return (
@@ -77,7 +77,7 @@ export default function CatCar() {
 </Carousel>
 
     <h1  className='text-xl font-bold'>Electronics</h1>
-        <Carousel indicators={false} className='border h-80 bg-white my-5 rounded'>
+        <Carousel indicators={false} slideInterval={9000} className='border h-80 bg-white my-5 rounded'>
 
         {electronics.map((item) => {
  return (
@@ -97,7 +97,7 @@ export default function CatCar() {
 })}
   </Carousel>
   <h1  className='text-xl font-bold'>Jewelry</h1>
-  <Carousel indicators={false} className='border h-80 bg-white my-5 rounded'>
+  <Carousel slideInterval={10000} indicators={false} className='border h-80 bg-white my-5 rounded'>
 
   {jewelry.map((item) => {
  return (
