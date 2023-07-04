@@ -25,11 +25,20 @@ export default function Featured ({featuredItem}) {
     console.log(featItem)
 
     return (
-        <div className="border p-5">
-            <h1 className="font-bold">Featured Item</h1>
-            <img src={featItem?.image} style={{height: "25rem", width:"25rem"}}></img>
-            <h1>{featItem?.title}</h1>
-            <p className="font-bold">${featItem.price}</p>
+        <div className="space-x-5  p-5 flex flex-col space-y-10 bg-white rounded">
+            <a className="space-y-10"href={`/item/${featItem?.id}`}>
+            <h1 className=" text-xl font-thin ">Featured Item</h1>
+            <div className="flex space-x-6 flex-row h-60 p-2">
+            <img src={featItem?.image} className="w-1/2"></img>
+            <h1 className="text-gray-700 italic font-bold">{featItem?.title}</h1>
+                
+            </div>
+            <div className="p-5 space-y-4">
+            <p className="text-sm font-thin italic ">{featItem?.description}</p>
+            <p className="font-bold text-center text-lg text-green-600">${featItem.price}</p>
+            </div>
+           
+            </a>
         </div>
     )
 }
