@@ -17,7 +17,7 @@ function App() {
     <Router>
 
       <Navtab />
-      <div className="min-w-full bg-gray-300 p-5">
+      <div className="min-w-full bg-gray-300 p-2">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />

@@ -30,12 +30,10 @@ export default function CatCar() {
 
 
   return (
-    <div className='my-5 md:flex md:w-full md:flex-wrap md:p-2'>
+    <div className=' md:flex md:w-full md:flex-wrap md:p-5 '>
       <div className='md:w-1/2 md:p-2 md:h-80'>
-        <h1 className='text-xl font-bold text-gray-800'>Mens</h1>
         <Carousel leftControl={<i class="fa-solid fa-arrow-left"></i>}
-          rightControl={<i class="fa-solid fa-arrow-right"></i>} indicators={false} slideInterval={5000} className='border h-60 bg-white my-5 rounded'>
-
+          rightControl={<i class="fa-solid fa-arrow-right"></i>} indicators={false} slideInterval={5000} className='border h-50 bg-white my-5 rounded'>
           {mens.map((item) => {
             return (
               <>
@@ -56,13 +54,13 @@ export default function CatCar() {
 
       </div>
       <div className='md:w-1/2 md:p-2 md:h-80'>
-        <h1 className='text-xl font-bold text-gray-800'>Women</h1>
         <Carousel leftControl={<i class="fa-solid fa-arrow-left"></i>}
           rightControl={<i class="fa-solid fa-arrow-right"></i>} indicators={false} slideInterval={5000} className='border h-60 bg-white my-5 rounded'>
 
           {womens.map((item) => {
             return (
               <>
+
                 <a key={item.id} href={`/item/${item.id}`} className='flex space-x-10 p-10 md:p-5 items-center'>
                   <img alt="..." src={item.image} className='w-1/2' />
                   <div className='space-y-5 w-100'>
@@ -80,7 +78,6 @@ export default function CatCar() {
 
       </div>
       <div className='md:w-1/2 md:p-2 md:h-80'>
-        <h1 className='text-xl font-bold text-gray-800'>Electronics</h1>
         <Carousel leftControl={<i class="fa-solid fa-arrow-left"></i>}
           rightControl={<i class="fa-solid fa-arrow-right"></i>} indicators={false} slideInterval={5000} className='border h-60 bg-white my-5 rounded'>
 
@@ -103,7 +100,7 @@ export default function CatCar() {
         </Carousel>
       </div>
       <div className='md:w-1/2 md:p-2 md:h-80'>
-        <h1 className='text-xl font-bold text-gray-800'>Jewelry</h1>
+
         <Carousel leftControl={<i class="fa-solid fa-arrow-left"></i>}
           rightControl={<i class="fa-solid fa-arrow-right"></i>} indicators={false} slideInterval={5000} className='border h-60 bg-white my-5 rounded'>
 
