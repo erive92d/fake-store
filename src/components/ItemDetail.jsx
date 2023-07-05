@@ -45,7 +45,7 @@ export default function ItemDetail() {
 
     return (
 
-        <div class="w-full mx-auto bg-white p-5 border">
+        <div class="w-full mx-auto bg-white p-5 border rounded">
             <div>
                 <p class="font-bold text-2xl text-green-600 text-right p-2 font-mono ">
 
@@ -68,9 +68,12 @@ export default function ItemDetail() {
                 </div>
 
                 <AddButton itemId={itemDetail[0]?.id} />
+                <div className="flex flex-col">
+                    <ReviewCreate itemId={itemDetail[0]?.id} />
+                    <Feedbacks item={itemDetail[0]} />
 
-                <ReviewCreate itemId={itemDetail[0]?.id} />
-                <Feedbacks item={itemDetail[0]} />
+                </div>
+
 
             </div>
         </div>

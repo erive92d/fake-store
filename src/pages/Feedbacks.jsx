@@ -67,11 +67,9 @@ export default function Feedbacks({ item }) {
 
     if (!reviews) return <h1>Loading</h1>
     return (
-        <div className="border">
-            <h1 className="font-bold text-xl">Reviews</h1>
-
-            <div>
-                {actualRev?.map((rev) => <p key={rev._id}>{rev.textBody} by Anon </p>)}
+        <div className="p-2 h-40 overflow-auto">
+            <div className="border rounded p-2">
+                {actualRev?.map((rev) => <p key={rev._id} className=" text-gray-700 text-lg">{rev.textBody} <p className="text-sm italic">by Anonymous User</p> </p>)}
             </div>
 
         </div>
