@@ -41,12 +41,11 @@ export default function Home() {
     // const featuredItem = items?.filter((prod) => prod.id === Math.floor(Math.random()*20))
     //     console.log(featuredItem)
     return (
-        <div className="my-5">
+        <div className="my-5 lg:flex lg:p-5 rounded">
 
             <Featured featuredItem={items} />
             {/* <CarouselItems items={items}/> */}
             <CatCar items={items} />
-
 
         </div>
     )

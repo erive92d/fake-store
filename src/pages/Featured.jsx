@@ -25,11 +25,11 @@ export default function Featured({ featuredItem }) {
     console.log(featItem)
 
     return (
-        <div className="space-x-5  p-5  flex flex-col space-y-10 bg-white rounded">
+        <div className="space-x-5  p-5  flex flex-col space-y-10 bg-white rounded lg:w-1/2">
             <a className="space-y-10 md:p-10" href={`/item/${featItem?.id}`}>
                 <h1 className="md:text-2xl text-xl font-thin ">Featured Item</h1>
                 <div className="flex space-x-6 flex-row h-60 p-2">
-                    <img src={featItem?.image} className="w-1/2"></img>
+                    <img src={featItem?.image} className="w-1/2 "></img>
                     <h1 className="text-gray-700 italic font-bold">{featItem?.title}</h1>
 
                 </div>

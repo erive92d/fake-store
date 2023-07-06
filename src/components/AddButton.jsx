@@ -2,7 +2,7 @@ import auth from '../utils/auth';
 import { useState, useEffect } from 'react';
 import { allProducts, saveProduct } from '../utils/API';
 
-export default function AddButton ({itemId}) {
+export default function AddButton({ itemId }) {
 
 
     const [items, setItems] = useState([])
@@ -15,18 +15,18 @@ export default function AddButton ({itemId}) {
 
     const handleButton = async (id) => {
         // localStorage.setItem(Math.floor(Math.random() * 100), id)
-        
-    if(!auth.loggedIn()) {
-        const userLogin = confirm(
-            "Log in to your account"
-        )
-        if(userLogin) {
-            window.location.assign('/login')
-        } else {
-            return
+
+        if (!auth.loggedIn()) {
+            const userLogin = confirm(
+                "Log in to your account"
+            )
+            if (userLogin) {
+                window.location.assign('/login')
+            } else {
+                return
+            }
+
         }
-        
-    }
         const itemToSave = items.filter((item) => item.id === id)
         console.log(itemToSave[0])
 
@@ -50,10 +50,10 @@ export default function AddButton ({itemId}) {
 
     return (
         <div className='py-2'>
-             <button className="rounded-md text-black px-3 py-1.5 text-xl font-semibold leading-6 shadow-sm hover:bg-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" onClick={() => handleButton(itemId)}>
-             <i class="fa-solid fa-cart-plus"></i>
+            <button className="rounded-md text-blue-600 px-3 py-1.5 text-xl font-semibold leading-6 shadow-sm hover:bg-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" onClick={() => handleButton(itemId)}>
+                <i class="fa-solid fa-cart-plus"></i>
             </button>
-    </div>
+        </div>
     )
-    
+
 }

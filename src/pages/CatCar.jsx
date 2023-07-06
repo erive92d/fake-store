@@ -30,19 +30,23 @@ export default function CatCar() {
 
 
   return (
-    <div className=' md:flex md:w-full md:flex-wrap md:p-5 '>
-      <div className='md:w-1/2 md:p-2 md:h-80'>
+    <div className=' md:flex md:w-full md:flex-wrap lg:w-1/2 '>
+      <div className='md:w-1/2 md:p-2 md:h-100 lg:p-0'>
         <Carousel leftControl={<i class="fa-solid fa-arrow-left"></i>}
-          rightControl={<i class="fa-solid fa-arrow-right"></i>} indicators={false} slideInterval={5000} className='border h-50 bg-white my-5 rounded'>
+          rightControl={<i class="fa-solid fa-arrow-right"></i>} indicators={false} slideInterval={5000} className='border h-50 bg-white my-5 lg:my-0 rounded'>
           {mens.map((item) => {
             return (
               <>
+                <div className='flex justify-between items-center p-2'>
+                  <p className='text-green-800 font-bold'>${item.price}</p>
+
+                  <AddButton itemId={item.id} />
+
+                </div>
                 <a key={item.id} href={`/item/${item.id}`} className='flex space-x-10 p-10 md:p-5  items-center'>
                   <img alt="..." src={item.image} className='w-1/2' />
                   <div className='space-y-5 w-100'>
                     <h1 className='font-thin text-lg'>{item.title}</h1>
-                    <p className='text-green-800 font-bold'>${item.price}</p>
-                    <AddButton itemId={item.id} />
                   </div>
 
                 </a>
@@ -53,20 +57,23 @@ export default function CatCar() {
         </Carousel>
 
       </div>
-      <div className='md:w-1/2 md:p-2 md:h-80'>
+      <div className='md:w-1/2 md:p-2 md:h-100 lg:p-0'>
         <Carousel leftControl={<i class="fa-solid fa-arrow-left"></i>}
-          rightControl={<i class="fa-solid fa-arrow-right"></i>} indicators={false} slideInterval={5000} className='border h-60 bg-white my-5 rounded'>
+          rightControl={<i class="fa-solid fa-arrow-right"></i>} indicators={false} slideInterval={5000} className='border h-60 bg-white lg:my-0 my-5 rounded'>
 
           {womens.map((item) => {
             return (
               <>
+                <div className='flex justify-between items-center p-2'>
+                  <p className='text-green-800 font-bold'>${item.price}</p>
 
+                  <AddButton itemId={item.id} />
+
+                </div>
                 <a key={item.id} href={`/item/${item.id}`} className='flex space-x-10 p-10 md:p-5 items-center'>
                   <img alt="..." src={item.image} className='w-1/2' />
                   <div className='space-y-5 w-100'>
                     <h1 className='font-thin text-lg md:h-20 md:overflow-hidden'>{item.title}</h1>
-                    <p className='text-green-800 font-bold'>${item.price}</p>
-                    <AddButton itemId={item.id} />
                   </div>
 
                 </a>
@@ -77,19 +84,23 @@ export default function CatCar() {
         </Carousel>
 
       </div>
-      <div className='md:w-1/2 md:p-2 md:h-80'>
+      <div className='md:w-1/2 md:p-2 md:h-100 lg:p-0'>
         <Carousel leftControl={<i class="fa-solid fa-arrow-left"></i>}
-          rightControl={<i class="fa-solid fa-arrow-right"></i>} indicators={false} slideInterval={5000} className='border h-60 bg-white my-5 rounded'>
+          rightControl={<i class="fa-solid fa-arrow-right"></i>} indicators={false} slideInterval={5000} className='border h-60 bg-white lg:my-0 my-5 rounded'>
 
           {electronics.map((item) => {
             return (
               <>
-                <a key={item.id} href={`/item/${item.id}`} className='flex space-x-10 p-10 md:flex-1'>
+                <div className='flex justify-between items-center p-2'>
+                  <p className='text-green-800 font-bold'>${item.price}</p>
+
+                  <AddButton itemId={item.id} />
+
+                </div>
+                <a key={item.id} href={`/item/${item.id}`} className='flex space-x-10 p-10 md:p-5 lg:flex-col lg:items-center lg:justify-center items-center'>
                   <img alt="..." src={item.image} className='w-1/2' />
                   <div className='space-y-5 w-100'>
                     <h1 className='font-thin text-lg md:h-20 md:overflow-hidden'>{item.title}</h1>
-                    <p className='text-green-800 font-bold'>${item.price}</p>
-                    <AddButton itemId={item.id} />
                   </div>
 
                 </a>
@@ -99,20 +110,26 @@ export default function CatCar() {
           })}
         </Carousel>
       </div>
-      <div className='md:w-1/2 md:p-2 md:h-80'>
+      <div className='md:w-1/2 md:p-2 md:h-100 lg:p-0'>
 
         <Carousel leftControl={<i class="fa-solid fa-arrow-left"></i>}
-          rightControl={<i class="fa-solid fa-arrow-right"></i>} indicators={false} slideInterval={5000} className='border h-60 bg-white my-5 rounded'>
+          rightControl={<i class="fa-solid fa-arrow-right"></i>} indicators={false} slideInterval={5000} className='border h-60 bg-white my-5 lg:my-0 rounded'>
 
           {jewelry.map((item) => {
             return (
               <>
+                <div className='flex justify-between items-center p-2 '>
+                  <p className='text-green-800 font-bold'>${item.price}</p>
+
+                  <AddButton itemId={item.id} />
+
+                </div>
                 <a key={item.id} href={`/item/${item.id}`} className='flex space-x-10 p-10 justify-center'>
+
                   <img alt="..." src={item.image} className='w-1/2' />
+
                   <div className='space-y-5 w-100'>
                     <h1 className='font-thin text-lg md:h-20 md:overflow-hidden'>{item.title}</h1>
-                    <p className='text-green-800 font-bold'>${item.price}</p>
-                    <AddButton itemId={item.id} />
                   </div>
 
                 </a>
