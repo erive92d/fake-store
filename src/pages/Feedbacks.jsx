@@ -62,14 +62,20 @@ export default function Feedbacks({ item }) {
     //     return 
     // })
 
-    // console.log(actualReviews)
+    console.log(actualRev)
 
 
     if (!reviews) return <h1>Loading</h1>
     return (
         <div className="p-2 h-40 overflow-auto">
             <div className="border rounded p-2">
-                {actualRev?.map((rev) => <p key={rev._id} className=" text-gray-700 text-lg">{rev.textBody} <p className="text-sm italic">by Anonymous User</p> </p>)}
+                {actualRev?.map((rev) => {
+                    return (
+                        <div className="border-b border-b-gray-300">
+                            <p key={rev._id} className=" text-gray-700 text-lg">{rev.textBody}  </p>
+                        </div>
+                    )
+                })}
             </div>
 
         </div>
