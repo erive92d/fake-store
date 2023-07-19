@@ -124,4 +124,26 @@ module.exports = {
     }
     return res.json(userReview);
   },
+  async addOrder({ user = null, body }, res) {
+    console.log(body)
+    const userFound = await User.findOneAndUpdate(
+      {
+        _id: user._id
+      },
+      {
+        $addToSet: { orders: body }
+      },
+      {
+        new: true
+      }
+    )
+
+    if (!userFound) {
+      return false
+    }
+    // console.log(userFound)
+
+    return res.json(userFound)
+
+  }
 };

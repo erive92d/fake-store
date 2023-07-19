@@ -9,6 +9,10 @@ import Order from "./pages/Order.jsx";
 import Signup from "./components/Signup.jsx";
 import ItemDetail from "./components/ItemDetail.jsx";
 import Footer from "./components/Footer.jsx";
+import NewCart from "./components/NewCart.jsx";
+import New from "./pages/New.jsx";
+import CheckoutForm from "./pages/CheckoutForm.jsx";
+import Complete from "./pages/Complete.jsx";
 
 function App() {
   window.document.title = "Sahara"
@@ -26,6 +30,9 @@ function App() {
           <Route path="/order" element={<Order />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/item/:itemId" element={< ItemDetail />} />
+          <Route path="/newcart" element={<New />} />
+          <Route path="/checkout" element={<CheckoutForm />} />
+          <Route path="/complete" element={<Complete />} />
         </Routes>
 
       </div>

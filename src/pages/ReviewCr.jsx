@@ -8,7 +8,7 @@ import { leaveFeedback } from '../utils/API';
 export default function ReviewCreate({ itemId }) {
 
     const [input, setInput] = useState({
-
+        productId: itemId,
         textBody: ""
     })
 

@@ -11,7 +11,7 @@ import CatHeader from "./CatHeader";
 import Featured from "../pages/Featured";
 import CarouselItems from "../pages/Carousel";
 import CatCar from "../pages/CatCar";
-
+import NewCart from "./NewCart";
 export default function Home() {
 
     const [items, setItems] = useState([])
