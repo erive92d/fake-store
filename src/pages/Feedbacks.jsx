@@ -77,7 +77,7 @@ export default function Feedbacks({ item }) {
     return (
         <div className="p-2 h-40 overflow-auto">
             <div className={actualRev.length !== 0 ? "border rounded p-2" : "rounded p-2"}>
-                {actualRev?.map((rev) => <p key={rev._id} className=" text-gray-700 text-lg">{rev.textBody} <p className="text-sm italic">by Anonymous User</p> </p>)}
+                {actualRev?.map((rev) => <p key={rev._id} className=" text-gray-700 text-lg">{rev.textBody} <p className="text-sm italic">by Anon User</p> </p>)}
             </div>
 
         </div>
