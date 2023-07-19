@@ -73,65 +73,75 @@ export default function CheckoutForm() {
 
 
     return (
-        <div className="flex max-w-md flex-col gap-4">
-            <div>
-                <div className="mb-2 block">
-                    <Label
-                        htmlFor="small"
-                        value="Name"
+        <div className="flex max-w-md flex-col gap-4 min-h-screen items-center justify-center">
+            <div className="w-2/3 space-y-5">
+                <div className="w-100">
+                    <div className="mb-2 block">
+                        <label
+                            htmlFor="small"
+                            value="Name"
+                        >
+                            Name
+                        </label>
+                    </div>
+                    <input
+                        className=""
+                        id="small"
+                        sizing="sm"
+                        type="name"
+                        value={defaultFirst}
+
                     />
                 </div>
-                <TextInput
-                    id="small"
-                    sizing="sm"
-                    type="text"
-                    value={defaultFirst}
+                <div>
+                    <div className="mb-2 block">
+                        <label
+                            htmlFor="base"
+                            value="Address"
+                        >
 
-                />
-            </div>
-            <div>
-                <div className="mb-2 block">
-                    <Label
-                        htmlFor="base"
-                        value="Address"
+                            Address
+                        </label>
+                    </div>
+                    <input
+                        id="base"
+                        sizing="md"
+                        type="address"
+                        name="address"
+                        onChange={handleChange}
                     />
+
                 </div>
-                <TextInput
-                    id="base"
-                    sizing="md"
-                    type="address"
-                    name="address"
-                    onChange={handleChange}
-                />
+                <div>
+                    <div className="flex items-center gap-2">
+                        <input
+                            type="radio"
+                            id="united-state"
+                            name="payment"
+                            onClick={handleChange}
+                            value="paypal"
+                        />
+                        <label htmlFor="united-state">
+                            Paypal                    </label>
+                        <input type="radio"
 
-            </div>
-            <div>
-                <div className="flex items-center gap-2">
-                    <Radio
+                            id="united-state"
+                            name="payment"
+                            value="venmo"
+                            onClick={handleChange}
 
-                        id="united-state"
-                        name="payment"
-                        onClick={handleChange}
-                        value="paypal"
-                    />
-                    <Label htmlFor="united-state">
-                        Paypal                    </Label>
-                    <Radio
-
-                        id="united-state"
-                        name="payment"
-                        value="venmo"
-                        onClick={handleChange}
-
-                    // value="USA"
-                    />
-                    <Label htmlFor="united-state">
-                        Venmo                    </Label>
+                        // value="USA"
+                        />
+                        <label htmlFor="united-state">
+                            Venmo                    </label>
+                    </div>
                 </div>
+                <div>
+                    <Button onClick={handleSubmit}>Order</Button>
+                </div>
+
             </div>
-            <div>
-                <Button onClick={handleSubmit}>Order</Button>
-            </div>
+
         </div>
 
     )
