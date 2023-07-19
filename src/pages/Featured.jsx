@@ -22,7 +22,7 @@ export default function Featured({ featuredItem }) {
         setFeatItem(getItem()[0])
     }, [])
 
-    console.log(featItem)
+    // console.log(featItem)
 
     return (
         <div className="space-x-5  p-5  flex flex-col space-y-10 bg-white rounded lg:w-1/2">

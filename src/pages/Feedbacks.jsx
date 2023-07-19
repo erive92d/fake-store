@@ -13,13 +13,15 @@ export default function Feedbacks({ item }) {
         //Function for getting the data of users
         const getReviews = async (reviewItems) => {
             let arrayReviews = [] // Start with empty Array
-
+            // console.log(reviewItems)
             //Itirate over the users data
             for (let i = 0; i < reviewItems.length; i++) {
+                // console.log(reviewItems[i])
                 //If a user review is not empty only perform this
                 if (reviewItems[i].review.length !== 0) {
+                    // console.log(reviewItems[i])
                     //push all the reviews to the empty array
-                    arrayReviews.push(reviewItems[i].review)
+                    arrayReviews.push(reviewItems[i])
                 }
             }
             // for(let i = 0; i < reviewItems.length; i++) {
@@ -29,9 +31,9 @@ export default function Feedbacks({ item }) {
             //     }
             // }
 
-            // console.log(arrayReviews)
+            console.log(arrayReviews)
 
-            setUserReviews(...arrayReviews)
+            setUserReviews(arrayReviews)
         }
 
         //Initially runs the API that takes all the users
@@ -47,10 +49,16 @@ export default function Feedbacks({ item }) {
 
     // console.log(userReviews, "TEST")
 
+    const actualReviews = userReviews.map((rev) => rev.review)
+    const allReviews = actualReviews.flat()
+    // console.log(allReviews)
+    // const itemReview = allReviews?.filter(rev => rev.productId === item.id)
+    // console.log(itemReview)
 
     //if a user review id matches the current item id, grab it.
-    const actualRev = userReviews?.filter((revs) => revs.productId === item.id)
+    const actualRev = allReviews?.filter((revs) => revs.productId === item.id)
     // console.log(actualRev)
+
 
 
     // const actualReviews = userReviews?.map((users) => {
@@ -68,11 +76,12 @@ export default function Feedbacks({ item }) {
     if (!reviews) return <h1>Loading</h1>
     return (
         <div className="p-2 h-40 overflow-auto">
-            <div className="border rounded p-2">
+            <div className={actualRev.length !== 0 ? "border rounded p-2" : "rounded p-2"}>
                 {actualRev?.map((rev) => <p key={rev._id} className=" text-gray-700 text-lg">{rev.textBody} <p className="text-sm italic">by Anonymous User</p> </p>)}
             </div>
 
         </div>
     )
+
 
 }

@@ -92,6 +92,21 @@ export const leaveFeedback = (token, input, productId) => {
     }
 }
 
+export const userOrder = (token, items) => {
+    try {
+        return fetch('/api/users/order', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${token}`
+            },
+            body: JSON.stringify(items)
+        })
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 export const allProducts = () => {
     return fetch(`https://fakestoreapi.com/products/`);
 };

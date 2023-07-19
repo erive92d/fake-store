@@ -6,6 +6,10 @@ import auth from "../utils/auth"
 import AddButton from "./AddButton"
 import Feedbacks from "../pages/Feedbacks"
 import ReviewCreate from "../pages/ReviewCr"
+import NewAdd from "./NewAdd"
+
+
+
 export default function ItemDetail() {
 
 
@@ -25,7 +29,7 @@ export default function ItemDetail() {
     }, [])
 
 
-    console.log(itemDetail)
+    // console.log(itemDetail)
     if (!itemDetail[0]) {
         return (
             <div class="flex flex-col items-center justify-center h-fit">
@@ -45,29 +49,28 @@ export default function ItemDetail() {
 
     return (
 
-        <div class="w-full mx-auto bg-white p-5 border rounded">
-            <div>
-                <p class="font-bold text-2xl text-green-600 text-right p-2 font-mono ">
+        <div class="w-full mx-auto bg-white p-5 border rounded lg:flex">
 
+            <div className="p-2 lg:border-r border-r-gray-400 lg:w-1/2 ">
+                <p class="font-bold text-2xl text-green-600 p-2 font-mono text-right">
                     ${itemDetail[0]?.price}
                 </p>
+                <img class="p-8 rounded-t-lg lg:p-2 " src={itemDetail[0]?.image} />
             </div>
-            <div className="p-2 ">
-                <img class="p-8 rounded-t-lg" src={itemDetail[0]?.image} />
-            </div>
-            <div class="flex flex-col gap-5">
+            <div class="flex flex-col gap-5 lg:p-5 lg:w-1/2">
                 <a href="#">
                     <h5 class="text-xl font-semibold tracking-tight text-gray-900 ">{itemDetail[0]?.title}</h5>
+
                 </a>
+                <p class="font-bold text-sm text-gray-400 italic">
+                    {itemDetail[0]?.description}
+                </p>
 
 
-                <div className="p-2">
-                    <p class="font-bold text-sm text-gray-400 italic">
-                        {itemDetail[0]?.description}
-                    </p>
-                </div>
+                <NewAdd addItem={itemDetail[0]} />
 
-                <AddButton itemId={itemDetail[0]?.id} />
+                {/* <NewAdd itemDetail={itemDetail[0]} /> */}
+                {/* <AddButton itemId={itemDetail[0]?.id} /> */}
                 <div className="flex flex-col">
                     <ReviewCreate itemId={itemDetail[0]?.id} />
                     <Feedbacks item={itemDetail[0]} />
