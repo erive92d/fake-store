@@ -2,14 +2,7 @@ import { useEffect, useState } from "react"
 import { getSavedIds, saveId } from "../utils/localStorage"
 
 export default function NewAdd({ addItem }) {
-    // const [localItems, setLocalItems] = useState(getSavedIds())
-    // const [arrayOfIds, setArrayOfIds] = useState([])
-
-
-
-    // const handleClick = () =>
-    //     setLocalItems([...localItems, itemDetail])
-    // saveId(localItems)
+  
 
     const [localItems, setLocalItems] = useState(getSavedIds())
     const handleClick = () => {
