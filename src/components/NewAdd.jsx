@@ -16,7 +16,6 @@ export default function NewAdd({ addItem }) {
 
         try {
             setLocalItems([...localItems, addItem])
-            window.location.reload()
 
         } catch (error) {
             console.error(error)

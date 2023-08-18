@@ -52,7 +52,7 @@ export default function CheckoutForm() {
 
 
             // localStorage.setItem("order", JSON.stringify(orderDetail))
-            console.log(orderDetail)
+            console.log(orderDetail, "@")
             setOrderDetail(
                 {
                     fname: "",
@@ -74,7 +74,7 @@ export default function CheckoutForm() {
 
     return (
         <div className="flex max-w-md flex-col gap-4 min-h-screen items-center justify-center">
-            <div className="w-2/3 space-y-5">
+            <div className="w-100 space-y-5 ">
                 <div className="w-100">
                     <div className="mb-2 block">
                         <label
