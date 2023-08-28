@@ -36,7 +36,7 @@ export default function ViewPage({products}) {
         {products 
         && products.map((product) => (
             
-            <div  key={product.id} className='border w-2/3 rounded-lg p-5 my-2 bg-white'>
+            <div  key={product.id} className='border shadow-lg shadow-purple-300  w-2/3 rounded-lg p-2 my-2 bg-white'>
             <NewRating rating={product.rating}/>
 
             <Link to={`/item/${product.id}`}  >

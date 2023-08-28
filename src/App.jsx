@@ -19,15 +19,13 @@ import Newhome from "./pages/Newhome.jsx";
 
 function App() {
   window.document.title = "Sahara"
- 
-
 
   return (
 
     <Router>
 
       <Navtab />
-      <div className="min-w-full bg-gray-300">
+      <div className="min-w-full bg-gray-800 text-white">
         <Routes>
           <Route path="/" element={<Newhome />} />
           <Route path="/cart" element={<Cart />} />
