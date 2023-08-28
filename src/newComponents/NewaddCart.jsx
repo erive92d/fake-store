@@ -28,7 +28,7 @@ export default function NewaddCart({ handleCart, product, cart, handleRemove}) {
   return (
     <div className=' p-1 rounded-lg w-2/3 text-center mx-auto'>
         {isAdded ? <p onClick={() => handleRemove(product)} className='bg-green-400 w-2/3 mx-auto  rounded-lg'><i class="fa-solid fa-xmark"></i> Remove</p> :  
-        <p type='submit' className='bg-black w-2/3 mx-auto p-1 rounded-lg text-sm'
+        <p type='submit' className='bg-cyan-500 w-2/3 mx-auto p-1 rounded-lg text-sm'
          onClick={() => handleCart(product)} 
          ><i class="fa-solid fa-plus"></i> Add to cart</p>
        }

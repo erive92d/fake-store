@@ -5,6 +5,7 @@ import { saveId, getSavedIds } from '../utils/localStorage'
 import { useState, useEffect } from 'react'
 import NewaddCart from './NewaddCart'
 import NewCart from './NewCart'
+import NewRating from './NewRating'
 export default function ViewPage({products}) {
 
     const [cart, setCart] = useState(getSavedIds())
@@ -24,23 +25,26 @@ export default function ViewPage({products}) {
 
 
   return (
-    <div className='flex flex-col items-center'>
-        <div className='fixed right-0 p-5'>
+    <div className=''>
+        <div className='fixed right-0 bottom-20 p-5'>
             {cart?.length !== 0 ? <NewCart cart={cart}/> : null}
         </div>
-        <div>
+        <div className='p-2'>
              <CategoryBanner cat={products[0]} />
         </div>
+        <div className='flex flex-col items-center'>
         {products 
         && products.map((product) => (
+            
             <div  key={product.id} className='border w-2/3 rounded-lg p-5 my-2 bg-white'>
-
+            <NewRating rating={product.rating}/>
 
             <Link to={`/item/${product.id}`}  >
                 <div className='flex justify-between'>
                     
                     <p className='w-1/2 font-thin text-black'>{product.title}</p>
                     <p className='text-green-500 font-bold'>${product.price}</p>
+                    
                 </div>
                 <div className='p-5 '>
                     <img src={product.image}  className='w-1/2 mx-auto'/>
@@ -53,6 +57,8 @@ export default function ViewPage({products}) {
         
         
         ))}
+        </div>
+        
     </div>
   )
 }

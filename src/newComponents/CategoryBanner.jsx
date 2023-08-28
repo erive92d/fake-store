@@ -4,11 +4,14 @@ import { useEffect, useState } from 'react'
 export default function CategoryBanner({cat}) {
 
     const [category, setCategory] = useState(cat?.category)
+
     useEffect(() => {
         getCategory(cat?.category)
+        
     }, [cat])
 
     const getCategory = (page) => {
+        document.title = page
         if(page === "men's clothing") {
             setCategory("Mens")
         }
@@ -23,9 +26,7 @@ export default function CategoryBanner({cat}) {
         }
     }
 
-  return (
-    <div className='text-center p-5'>
-        <h1 className='text-3xl'>{category}</h1>
-    </div>
-  )
+  return <h1 className='text-3xl w-1/3 text-center bg-cyan-600 italic  p-2'>{category}</h1>
+   
+  
 }
