@@ -3,27 +3,34 @@ import { saveId, getSavedIds } from '../utils/localStorage'
 import { useState } from 'react'
 import { useEffect } from 'react'
 
-export default function NewaddCart({ handleCart, product, cart}) {
+export default function NewaddCart({ handleCart, product, cart, handleRemove}) {
     
   const [isAdded, setIsAdded] = useState(false)
   
   useEffect(() => {
-    checkItem(product)
+    if( checkItem(product)) {
+      setIsAdded(true)
+    } else {
+      setIsAdded(false)
+    }
+   
   },[cart])
 
   const checkItem = (item) => {
     const isPresent = cart.some(prd => prd.id === item.id)
     if(isPresent) {
-      setIsAdded(true)
+      return true
+    } else {
+      return false
     }
   }
 
   return (
-    <div className=' p-1 rounded-lg w-1/3 text-center mx-auto'>
-        {isAdded ? <p className='bg-green-400 rounded-lg'>Saved</p> :  
-        <button type='submit' className='bg-black p-1 rounded-lg'
+    <div className=' p-1 rounded-lg w-2/3 text-center mx-auto'>
+        {isAdded ? <p onClick={() => handleRemove(product)} className='bg-green-400 w-2/3 mx-auto  rounded-lg'><i class="fa-solid fa-xmark"></i> Remove</p> :  
+        <p type='submit' className='bg-black w-2/3 mx-auto p-1 rounded-lg text-sm'
          onClick={() => handleCart(product)} 
-         >Add to cart</button>
+         ><i class="fa-solid fa-plus"></i> Add to cart</p>
        }
     </div>
   )

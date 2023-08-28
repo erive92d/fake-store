@@ -7,6 +7,7 @@ import AddButton from "./AddButton"
 import Feedbacks from "../pages/Feedbacks"
 import ReviewCreate from "../pages/ReviewCr"
 import NewAdd from "./NewAdd"
+import NewaddCart from "../newComponents/NewaddCart"
 
 
 
@@ -66,7 +67,7 @@ export default function ItemDetail() {
                     {itemDetail[0]?.description}
                 </p>
 
-
+          
                 <NewAdd addItem={itemDetail[0]} />
 
                 {/* <NewAdd itemDetail={itemDetail[0]} /> */}

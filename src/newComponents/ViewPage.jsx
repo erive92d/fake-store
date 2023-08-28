@@ -13,18 +13,20 @@ export default function ViewPage({products}) {
         saveId(cart)
     }, [cart])
 
-
-   
-   
-
     const handleCart = (prod) => {
         setCart([...cart, prod])
     }
 
+    const handleRemove = ( prod) => {
+        const updated = cart.filter(item => item.id !== prod.id)
+        setCart(updated)
+      }
+
+
   return (
     <div className='flex flex-col items-center'>
         <div className='fixed right-0 p-5'>
-            {cart.length !== 0 ? <NewCart cart={cart}/> : null}
+            {cart?.length !== 0 ? <NewCart cart={cart}/> : null}
         </div>
         <div>
              <CategoryBanner cat={products[0]} />
@@ -45,7 +47,7 @@ export default function ViewPage({products}) {
                 </div>  
             </Link>
             <div> 
-                <NewaddCart handleCart={handleCart} product={product} cart={cart}/>
+                <NewaddCart handleRemove={handleRemove} handleCart={handleCart} product={product} cart={cart}/>
             </div>
          </div>
         
