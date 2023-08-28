@@ -26,7 +26,7 @@ export default function CatCar() {
   const womens = items?.filter((item) => item.category === "women's clothing")
 
 
-
+  
 
 
 
@@ -41,8 +41,8 @@ export default function CatCar() {
           rightControl={<i class="fa-solid fa-arrow-right"></i>} indicators={false} slide={5000} className='border h-50 bg-white my-5 lg:my-0 rounded'>
           {mens?.map((item) => {
             return (
-              <>
-
+              <>  
+   
                 <div className='flex justify-between items-center p-2'>
                   <p className='text-green-800 font-bold'>${item.price}</p>
                   <NewAdd addItem={item} />

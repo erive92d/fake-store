@@ -1,19 +1,9 @@
-import { Navtab } from "./Navtab";
-import { useEffect, useState } from "react";
-import Card from 'react-bootstrap/Card';
-import { Link } from "react-router-dom";
-import auth from "../utils/auth";
-import AddButton from "./AddButton";
-import CardGroup from 'react-bootstrap/CardGroup';
-import { saveProduct, getCategory, allProducts } from '../utils/API';
-import Reviews from '../pages/Reviews'
-import CatHeader from "./CatHeader";
-import Featured from "../pages/Featured";
-import CarouselItems from "../pages/Carousel";
-import CatCar from "../pages/CatCar";
-import NewCart from "./NewCart";
-import Tabs from "../newComponents/Tabs";
-export default function Home() {
+import { useState, useEffect } from "react"
+import { allProducts } from "../utils/API"
+import Tabs from "../newComponents/Tabs"
+import AllProducts from "../api-calls/AllProducts"
+
+export default function Newhome() {
 
     const [items, setItems] = useState([])
     useEffect(() => {
@@ -37,11 +27,12 @@ export default function Home() {
         )
     }
 
-    return (
-        <div>
-            <Tabs />
-        </div>
-    )
+ 
+
+    return <Tabs items={items}/>
+            
+        
+    
 
 
     // const featuredItem = items?.filter((prod) => prod.id === Math.floor(Math.random()*20))

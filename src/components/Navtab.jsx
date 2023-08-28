@@ -48,7 +48,7 @@ export function Navtab() {
           <i class="fa fa-store"></i> Sahara
         </span>
       </Navbar.Brand>
-      <NewCart />
+      {/* <NewCart /> */}
       <Navbar.Toggle />
       <Navbar.Collapse>
         <Navbar.Link

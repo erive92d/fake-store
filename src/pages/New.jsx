@@ -6,23 +6,28 @@ import { getSavedIds } from "../utils/localStorage"
 import Checkout from "../components/Checkout"
 
 export default function New() {
-    const [items, setItems] = useState([])
-
-
+    const [items, setItems] = useState(getSavedIds())
 
     useEffect(() => {
-        setItems(getSavedIds())
-    }, [])
-
-
-
+        localStorage.setItem("saved_ids", JSON.stringify(items))
+    },[items])
+   
+    const handleDelete = (itemId) => {
+        console.log(itemId)
+        const updated = items.filter(itm => itm.id !== itemId)
+        setItems(updated)
+        
+    }
     return (
-        <div className="bg-white">
-            {items.map((item) => {
+        <div className="bg-gray-700 text-white flex flex-col h-screen">
+               
+               <Total items={items} />
+            <div className="h-2/3 overflow-scroll">
+            {items?.map((item) => {
                 return (
-                    <div className="p-5 mx-auto border flex flex-col">
+                    <div className=" p-2 mx-auto border rounded-lg bg-white my-2 text-black w-2/3 flex flex-col">
                         <div className="text-right">
-                            <NewRemove itemId={item.id} />
+                            <NewRemove handleDelete={handleDelete} itemId={item.id} />
 
                         </div>
                         <div className="flex">
@@ -34,13 +39,10 @@ export default function New() {
                                 <img src={item.image} alt="pic" />
                             </div>
                         </div>
-
-
-
                     </div>
                 )
             })}
-            <Total items={items} />
+            </div>
             <Checkout />
         </div>
     )

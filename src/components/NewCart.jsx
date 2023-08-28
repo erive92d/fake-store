@@ -7,15 +7,10 @@ import auth from "../utils/auth"
 export default function NewCart() {
 
     const [items, setItems] = useState([])
-
-    // const token = auth.getToken()
-    // console.log(token)
-
     useEffect(() => {
 
         setItems(getSavedIds())
     }, [])
-    // console.log(items)
 
     return (
         <div className={items?.length !== 0 ? "flex" : "hidden"}>
