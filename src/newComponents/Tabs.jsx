@@ -3,18 +3,11 @@ import CurrentPage from "./CurrentPage";
 import { useState } from "react";
 export default function Tabs({items, handlePage, page}) {
 
-    // const [page, setPage] = useState("men's clothing")
-
-    // const handlePage = (e) => {
-    //     e.preventDefault()
-    //     setPage(e.target.name)
-    // }
-
 
     return (
         <div className="bg-gray-800 text-white space-y-5 ">
             <div className="flex relative justify-around py-2 shadow-lg shadow-purple-700">
-                <div className="p-5">
+                <div>
                     <button 
                     name="men's clothing"
                     onClick={handlePage}
@@ -23,7 +16,7 @@ export default function Tabs({items, handlePage, page}) {
                         Mens
                         </button>
                 </div>
-                <div className="p-5">
+                <div>
                     <button 
                     onClick={handlePage}
                     className={page === "women's clothing" ? 'font-bold bg-white text-black ease-out p-2 duration-200  sticky rounded' :  'p-2 font-thin'}
@@ -31,7 +24,7 @@ export default function Tabs({items, handlePage, page}) {
                         Womens
                         </button>
                 </div>
-                <div className="p-5">
+                <div>
                     <button
                     onClick={handlePage}
                     className={page === 'jewelery' ? 'font-bold bg-white text-black ease-out p-2 duration-200  sticky rounded' :  ' p-2 font-thin'}
@@ -39,7 +32,7 @@ export default function Tabs({items, handlePage, page}) {
                         Jewelry
                         </button>
                 </div>
-                <div className="p-5">
+                <div>
                     <button
                     onClick={handlePage}
                     className={page === 'electronics' ? 'font-bold bg-white text-black ease-out p-2 duration-200  sticky rounded' : 'p-2 font-thin'}
