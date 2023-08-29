@@ -6,12 +6,7 @@ import auth from "../utils/auth";
 import AddButton from "./AddButton";
 import CardGroup from 'react-bootstrap/CardGroup';
 import { saveProduct, getCategory, allProducts } from '../utils/API';
-import Reviews from '../pages/Reviews'
-import CatHeader from "./CatHeader";
-import Featured from "../pages/Featured";
-import CarouselItems from "../pages/Carousel";
-import CatCar from "../pages/CatCar";
-import NewCart from "./NewCart";
+
 import Tabs from "../newComponents/Tabs";
 export default function Home() {
 

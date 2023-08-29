@@ -55,9 +55,7 @@ export default function ReviewCreate({ itemId }) {
     return (
         <div
             className="max-w-md p-2"
-            id="textarea"
-
-        >
+            id="textarea">
             <div className="mb-2 block">
                 <Label
                     htmlFor="comment"
@@ -66,11 +64,12 @@ export default function ReviewCreate({ itemId }) {
             </div>
             <Textarea
                 onChange={handleChange}
+                className='p-1 '
                 id="comment"
                 name="textBody"
                 placeholder="Leave a comment..."
                 required
-                rows={4}
+                rows={3}
             />
             {!auth.loggedIn() ? <h1> <a href="/login" className='text-blue-600'>Log in </a> to leave a comment </h1> :
                 <Button type='button' className='my-2' onClick={handleSubmit}>Submit</Button>}

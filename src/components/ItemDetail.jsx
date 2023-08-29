@@ -8,12 +8,11 @@ import Feedbacks from "../pages/Feedbacks"
 import ReviewCreate from "../pages/ReviewCr"
 import NewAdd from "./NewAdd"
 import NewaddCart from "../newComponents/NewaddCart"
+import NewRating from "../newComponents/NewRating"
 
 
 
 export default function ItemDetail() {
-
-
 
     const [itemDetail, setItemDetail] = useState([])
     const { itemId } = useParams()
@@ -29,8 +28,6 @@ export default function ItemDetail() {
             .then((data) => getItem(data))
     }, [])
 
-
-    // console.log(itemDetail)
     if (!itemDetail[0]) {
         return (
             <div class="flex flex-col items-center justify-center h-fit">
@@ -46,41 +43,45 @@ export default function ItemDetail() {
         )
     }
 
-
-
     return (
 
-        <div class="w-full mx-auto bg-white p-5 border rounded lg:flex">
+      
+            <div className="flex flex-col p-5">
+                <div className="flex justify-between p-2 lg:border-r border-r-gray-400 lg:w-1/2 ">
+                    <div className="flex flex-col w-1/3 space-y-7">
+                        <NewRating rating={itemDetail[0].rating}/>
+                        <a href="#">
+                            <h5 class="text-xl font-semibold tracking-tight text-white ">{itemDetail[0]?.title}</h5>
+                        </a>
+                        <p class="font-bold text-2xl text-green-600 p-2 font-mono">
+                            ${itemDetail[0]?.price}
+                        </p>
+                        <NewAdd addItem={itemDetail[0]} />
 
-            <div className="p-2 lg:border-r border-r-gray-400 lg:w-1/2 ">
-                <p class="font-bold text-2xl text-green-600 p-2 font-mono text-right">
-                    ${itemDetail[0]?.price}
-                </p>
-                <img class="p-8 rounded-t-lg lg:p-2 " src={itemDetail[0]?.image} />
-            </div>
-            <div class="flex flex-col gap-5 lg:p-5 lg:w-1/2">
-                <a href="#">
-                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 ">{itemDetail[0]?.title}</h5>
+                    </div>
+                    <div className="w-1/2 bg-white flex flex-col  items center  justify-center p-3 rounded-xl">
+                            <img className="lg:p-2" src={itemDetail[0]?.image} />
+                    </div>
+                </div>
+                <div class="flex flex-col p-2 gap-5 lg:p-5 lg:w-1/2">
+                    <div className="border p-2 rounded space-y-2">
+                        <h1 className="text-2xl font-thin">About this product</h1>
+                        <p class="font-bold text-sm text-gray-200 italic h-1/3 overflow-scroll">
+                        {itemDetail[0]?.description}
+                        </p>
+                    </div>
+                    
+                    <div className="flex flex-col">
+                        <ReviewCreate itemId={itemDetail[0]?.id} />
+                        <Feedbacks item={itemDetail[0]} />
 
-                </a>
-                <p class="font-bold text-sm text-gray-400 italic">
-                    {itemDetail[0]?.description}
-                </p>
+                    </div>
 
-          
-                <NewAdd addItem={itemDetail[0]} />
-
-                {/* <NewAdd itemDetail={itemDetail[0]} /> */}
-                {/* <AddButton itemId={itemDetail[0]?.id} /> */}
-                <div className="flex flex-col">
-                    <ReviewCreate itemId={itemDetail[0]?.id} />
-                    <Feedbacks item={itemDetail[0]} />
 
                 </div>
-
-
             </div>
-        </div>
+            
+    
 
 
     )

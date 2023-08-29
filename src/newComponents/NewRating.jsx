@@ -13,6 +13,6 @@ export default function NewRating({rating}) {
    
 
   return (
-    <div className='text-yellow-500'>{icon && icon}</div>
+    <div className='text-yellow-500 text-2xl'>{icon && icon}</div>
   )
 }

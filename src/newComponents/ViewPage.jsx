@@ -37,19 +37,19 @@ export default function ViewPage({products}) {
         && products.map((product) => (
             
             <div  key={product.id} className='border shadow-lg shadow-purple-300  w-2/3 rounded-lg p-2 my-2 bg-white'>
-            <NewRating rating={product.rating}/>
+                <NewRating rating={product.rating}/>
 
-            <Link to={`/item/${product.id}`}  >
-                <div className='flex justify-between'>
-                    
-                    <p className='w-1/2 font-thin text-black'>{product.title}</p>
-                    <p className='text-green-500 font-bold'>${product.price}</p>
-                    
-                </div>
-                <div className='p-5 '>
-                    <img src={product.image}  className='w-1/2 mx-auto'/>
-                </div>  
-            </Link>
+                <Link to={`/item/${product.id}`}  >
+                    <div className='flex justify-between'>
+                        
+                        <p className='w-1/2 font-thin text-black'>{product.title}</p>
+                        <p className='text-green-500 font-bold'>${product.price}</p>
+                        
+                    </div>
+                    <div className='p-5 '>
+                        <img src={product.image}  className='w-1/2 mx-auto'/>
+                    </div>  
+                </Link>
             <div> 
                 <NewaddCart handleRemove={handleRemove} handleCart={handleCart} product={product} cart={cart}/>
             </div>
