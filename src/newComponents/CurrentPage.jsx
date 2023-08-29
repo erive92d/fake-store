@@ -29,11 +29,6 @@ export default function CurrentPage({page}) {
             console.log(error)
         }
     }
-
-    // if(!products) {
-    //     return <h1>Loading..</h1>
-    // }
-
     return (
         <div className="">
             {loading ? <Loading page={page}/> :  <ViewPage products={products} />

@@ -1,48 +1,48 @@
 import CategoryBanner from "./CategoryBanner";
 import CurrentPage from "./CurrentPage";
 import { useState } from "react";
-export default function Tabs({items}) {
+export default function Tabs({items, handlePage, page}) {
 
-    const [page, setPage] = useState("men's clothing")
+    // const [page, setPage] = useState("men's clothing")
 
-    const handlePage = (e) => {
-        e.preventDefault()
-        setPage(e.target.name)
-    }
+    // const handlePage = (e) => {
+    //     e.preventDefault()
+    //     setPage(e.target.name)
+    // }
 
 
     return (
-        <div className="bg-gray-800 text-white space-y-5">
-            <div className="flex justify-around py-3  shadow-lg shadow-purple-500">
-                <div>
+        <div className="bg-gray-800 text-white space-y-5 ">
+            <div className="flex relative justify-around py-2 shadow-lg shadow-purple-700">
+                <div className="p-5">
                     <button 
                     name="men's clothing"
                     onClick={handlePage}
-                    className={page === "men's clothing" ? 'font-bold text-white underline underline-offset-4': 'font-thin'}
+                    className={page === "men's clothing" ? 'font-bold bg-white text-black ease-out p-2 duration-200  sticky rounded': 'p-2 font-thin'}
                         >
                         Mens
                         </button>
                 </div>
-                <div>
+                <div className="p-5">
                     <button 
                     onClick={handlePage}
-                    className={page === "women's clothing" ? 'font-bold text-white underline underline-offset-4' : 'font-thin'}
+                    className={page === "women's clothing" ? 'font-bold bg-white text-black ease-out p-2 duration-200  sticky rounded' :  'p-2 font-thin'}
                     name="women's clothing">
                         Womens
                         </button>
                 </div>
-                <div>
+                <div className="p-5">
                     <button
                     onClick={handlePage}
-                    className={page === 'jewelery' ? 'font-bold text-white underline underline-offset-4' : 'font-thin'}
+                    className={page === 'jewelery' ? 'font-bold bg-white text-black ease-out p-2 duration-200  sticky rounded' :  ' p-2 font-thin'}
                     name="jewelery">
                         Jewelry
                         </button>
                 </div>
-                <div>
+                <div className="p-5">
                     <button
                     onClick={handlePage}
-                    className={page === 'electronics' ? 'font-bold text-white underline underline-offset-4' : 'font-thin'}
+                    className={page === 'electronics' ? 'font-bold bg-white text-black ease-out p-2 duration-200  sticky rounded' : 'p-2 font-thin'}
                     name="electronics">
                         Electronics
                         </button>
@@ -50,7 +50,7 @@ export default function Tabs({items}) {
             </div>
             
             <div >
-                <CurrentPage page={page}/>
+                {/* <CurrentPage page={page}/> */}
             </div>
 
         </div>

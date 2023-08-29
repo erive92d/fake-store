@@ -26,7 +26,7 @@ export default function ViewPage({products}) {
 
   return (
     <div className=''>
-        <div className='fixed right-0 bottom-20 p-5'>
+        <div className='fixed right-0  p-5'>
             {cart?.length !== 0 ? <NewCart cart={cart}/> : null}
         </div>
         <div className='p-2'>
