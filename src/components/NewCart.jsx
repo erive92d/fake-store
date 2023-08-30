@@ -19,7 +19,6 @@ export default function NewCart() {
                     <i class="fa-solid fa-cart-shopping text-2xl text-gray-700"></i>
                     <p className="bg-green-700 text-white p-2 text-sm  rounded-full">
                         {items.length}
-
                     </p>
 
                 </a>}

@@ -3,7 +3,6 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import { rateStars } from '../utils/rating'
 export default function NewRating({rating}) {
-
     const [icon, setIcon] = useState([])
 
     useEffect(() => {

@@ -25,38 +25,48 @@ export default function ViewPage({products}) {
 
 
   return (
-    <div className=''>
+    <div className='lg:flex lg:flex-col lg:h-screen'>
         <div className='fixed right-0  p-5'>
             {cart?.length !== 0 ? <NewCart cart={cart}/> : null}
         </div>
-        <div className='p-2'>
+        <div className='p-2 lg:flex lg:justify-center '>
              <CategoryBanner cat={products[0]} />
         </div>
-        <div className='flex flex-col items-center'>
-        {products 
-        && products.map((product) => (
-            
-            <div  key={product.id} className='border shadow-lg shadow-purple-300  w-2/3 rounded-lg p-2 my-2 bg-white'>
-                <NewRating rating={product.rating}/>
-
-                <Link to={`/item/${product.id}`}  >
-                    <div className='flex justify-between'>
-                        
-                        <p className='w-1/2 font-thin text-black'>{product.title}</p>
-                        <p className='text-green-500 font-bold'>${product.price}</p>
-                        
-                    </div>
-                    <div className='p-5 '>
-                        <img src={product.image}  className='w-1/2 mx-auto'/>
-                    </div>  
-                </Link>
-            <div> 
-                <NewaddCart handleRemove={handleRemove} handleCart={handleCart} product={product} cart={cart}/>
+        <div className='flex flex-col items-center 
+        lg:flex-row lg:flex-wrap lg:p-10 lg:justify-center 
+        '>
+            {products 
+            && products.map((product) => (
+                
+                <div key={product.id} className='border shadow-lg hover:ease-out hover:duration-300 shadow-purple-300  w-2/3 rounded-lg p-2 my-2 bg-white 
+                lg:flex lg:flex-col lg:m-3 lg:w-1/4
+                '>
+                        <div className='flex justify-between  lg:h-20'>
+                            <div className='lg:w-1/2 w-1/2'>
+                                <NewRating rating={product.rating}/>
+                                <Link to={`/item/${product.id}`} className='w-1/2 lg:w-full lg:hover:text-orange-600 lg:duration-300  font-thin text-black' >
+                                    {product.title}
+                                </Link>
+                            </div>
+                            <div className='flex flex-col w-1/2 items-end lg:w-1/2 '>
+                                <p className='text-green-500 font-bold lg:text-2xl'>${product.price}</p>
+                                <NewaddCart handleRemove={handleRemove} handleCart={handleCart} product={product} cart={cart}/>
+                            </div>
+                           
+                        </div>
+                        <div className='p-5 lg:flex lg:flex-col '>
+                            <img src={product.image}
+                            className=' mx-auto w-1/2 h-48
+                            lg:object-contain
+                            lg:h-48 lg:w-96
+                                                        '/>
+                        </div> 
+                   
+                    
             </div>
-         </div>
-        
-        
-        ))}
+            
+            
+            ))}
         </div>
         
     </div>

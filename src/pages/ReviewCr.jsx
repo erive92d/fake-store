@@ -54,7 +54,7 @@ export default function ReviewCreate({ itemId }) {
 
     return (
         <div
-            className="max-w-md p-2"
+            className="max-w-md p-2 lg:p-0"
             id="textarea">
             <div className="mb-2 block">
                 <Label

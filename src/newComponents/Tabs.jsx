@@ -11,7 +11,7 @@ export default function Tabs({items, handlePage, page}) {
                     <button 
                     name="men's clothing"
                     onClick={handlePage}
-                    className={page === "men's clothing" ? 'font-bold bg-white text-black ease-out p-2 duration-200  sticky rounded': 'p-2 font-thin'}
+                    className={page === "men's clothing" ? 'font-bold  bg-white text-black ease-out p-2 duration-200  sticky rounded': 'p-2 font-thin'}
                         >
                         Mens
                         </button>

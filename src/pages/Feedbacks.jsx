@@ -4,7 +4,7 @@ import { getAllUsers } from "../utils/API";
 export default function Feedbacks({ item }) {
     const [reviews, setReviews] = useState({})
     const [userReviews, setUserReviews] = useState([])
-
+    // console.log(item)
 
 
     useEffect(() => {
@@ -30,9 +30,6 @@ export default function Feedbacks({ item }) {
 
             //     }
             // }
-
-            console.log(arrayReviews)
-
             setUserReviews(arrayReviews)
         }
 
@@ -40,9 +37,6 @@ export default function Feedbacks({ item }) {
         getAllUsers()
             .then((res) => res.json())
             .then(((data) => getReviews(data)))
-
-
-        getReviews()
 
     }, [])
 
@@ -70,14 +64,18 @@ export default function Feedbacks({ item }) {
     //     return 
     // })
 
-    console.log(actualRev)
+    // console.log(actualRev)
 
 
     if (!reviews) return <h1>Loading</h1>
     return (
         <div className="p-2 h-40 overflow-auto">
-            <div className={actualRev.length !== 0 ? "border rounded p-2" : "rounded p-2"}>
-                {actualRev?.map((rev) => <p key={rev._id} className=" text-gray-700 text-lg">{rev.textBody} <p className="text-sm italic">by Anonymous User</p> </p>)}
+            <div className={actualRev.length !== 0 ? "shadow shadow-purple-600 rounded p-2" : "rounded p-2"}>
+                {actualRev?.map((rev) => (
+                    <div>
+                        <p key={rev._id} className=" text-white text-lg border-b border-b-gray-400 p-2">{rev.textBody} <p className="text-sm italic">by Anonymous User</p> </p>
+                       </div> 
+                ))}
         
 
             </div>
