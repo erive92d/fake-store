@@ -1,5 +1,4 @@
 export const rateStars = (str) => {
-  console.log(str);
   let rounded = Math.floor(str.rate);
   const rateIcon = "★";
   let array = [];

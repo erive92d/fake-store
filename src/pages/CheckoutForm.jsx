@@ -73,8 +73,8 @@ export default function CheckoutForm() {
 
 
     return (
-        <div className="flex max-w-md flex-col gap-4 min-h-screen items-center justify-center">
-            <div className="w-2/3 space-y-5">
+        <div className="flex max-w-md flex-col gap-4 min-h-screen items-center ">
+            <div className="space-y-5">
                 <div className="w-100">
                     <div className="mb-2 block">
                         <label
@@ -85,10 +85,11 @@ export default function CheckoutForm() {
                         </label>
                     </div>
                     <input
-                        className=""
+                     
                         id="small"
                         sizing="sm"
                         type="name"
+                        className="text-black p-1 rounded"
                         value={defaultFirst}
 
                     />
@@ -108,6 +109,7 @@ export default function CheckoutForm() {
                         sizing="md"
                         type="address"
                         name="address"
+                        className="text-black p-1 rounded"
                         onChange={handleChange}
                     />
 

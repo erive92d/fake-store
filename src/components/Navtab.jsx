@@ -2,7 +2,6 @@ import auth from "../utils/auth"
 import { useEffect, useState } from "react"
 import { getMe } from "../utils/API"
 import { Navbar } from "flowbite-react"
-import NewCart from "./NewCart"
 export function Navtab() {
 
   const [userData, setUserData] = useState({})

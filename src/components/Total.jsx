@@ -12,7 +12,7 @@ export default function Total({ items }) {
     const totalPrice = itemPrices?.reduce((acc, curr) => acc += curr, 0)
 
     return (
-        <div className="p-3 text-center">
+        <div className="p-2 text-center">
             <h1 className="text-lg bg-green-600 rounded-lg w-1/2 mx-auto">Total: ${totalPrice}</h1>
         </div>
     )

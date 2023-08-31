@@ -22,10 +22,10 @@ export default function NewCart({cart}) {
           </div>
           }
         {isShow && 
-          <div className="text-white p-4 z-10 border-2 border-purple-600 fixed top-70 right-0  h-1/2 overflow-y-auto bg-gray-700 shadow-inner shadow-purple-400 rounded
+          <div className="text-white p-4 border-2 border-purple-600 fixed top-70 right-0  h-1/2 overflow-y-auto bg-gray-700 shadow-inner shadow-purple-400 rounded
           lg:w-1/4 lg:p-3 lg:right-10
           ">
-            <div className='flex justify-between'>
+            <div className='flex justify-between '>
               <Link to="/newcart" className="bg-green-500 font-thin p-1 rounded-md">
                   Go to cart
               </Link>
