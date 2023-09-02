@@ -14,8 +14,30 @@ export default function ViewPage({products}) {
         saveId(cart)
     }, [cart])
 
-    const handleCart = (prod) => {
-        setCart([...cart, prod])
+    const handleCart = (prod, multiplier) => {
+        const newProd = {
+            ...prod, count: multiplier
+        }
+
+        if(cart.find(item => item.id === newProd.id)) {
+            console.log("its here")
+            if(newProd.multiplier !== 0) {
+                console.log("its not zero")
+                let array = [...cart]
+                const indexItem = array.findIndex(itm => itm.id === newProd.id)
+                array[indexItem].count = multiplier
+                setCart(array)
+            } else {
+                
+                const deleteItem = cart.filter(item => item.id !== newProd.id)
+                console.log(deleteItem)
+                setCart(deleteItem)
+            }
+            
+        } else {
+            setCart([...cart, newProd])
+
+        }
     }
 
     const handleRemove = ( prod) => {
@@ -27,7 +49,7 @@ export default function ViewPage({products}) {
   return (
     <div className='lg:flex lg:flex-col lg:h-screen'>
         <div className='fixed right-0  p-5'>
-            {cart?.length !== 0 ? <NewCart cart={cart}/> : null}
+            {cart?.length !== 0 ? <NewCart handleCart={handleCart} cart={cart}/> : null}
         </div>
         <div className='p-2 lg:flex lg:justify-center '>
              <CategoryBanner cat={products[0]} />

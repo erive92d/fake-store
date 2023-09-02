@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react"
 import { allProducts } from "../utils/API"
 import Tabs from "../newComponents/Tabs"
-import AllProducts from "../api-calls/AllProducts"
 import Loading from "../newComponents/Loading"
 import CurrentPage from "../newComponents/CurrentPage"
 
@@ -30,7 +29,7 @@ export default function Newhome() {
     return (
             <div>
                 <Tabs items={items} handlePage={handlePage} page={page}/>
-                <CurrentPage page={page} />
+                <CurrentPage page={page} items={items} />
             </div>
         )
             
