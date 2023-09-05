@@ -26,8 +26,8 @@ export default function CategoryBanner({cat}) {
         }
     }
 
-  return <h1 className='text-2xl w-2/3 text-center font-thin font-mono rounded-lg text-white p-2
-    lg:text-6xl shadow-xl shadow-purple-800
+  return <h1 className='text-2xl w-1/3 shadow-lg bg-blue-400 text-center font-bold font-mono  text-white p-2
+    lg:text-6xl 
   '>
     {category}
     </h1>

@@ -33,17 +33,17 @@ export default function ItemDetail() {
     }
 
     return (
-            <div className="flex flex-col p-5 lg:p-10 lg:items-center lg:h-screen">
+            <div className="flex flex-col p-5 lg:p-10 lg:items-center lg:h-screen ">
                 {/* <button onClick={() => navigate(-1)}>Go back</button> */}
                 <ItemDetailUpper
                  item={itemDetail[0]} itemId={itemDetail[0].id} title={itemDetail[0].title} price={itemDetail[0].price} image={itemDetail[0].image} rating={itemDetail[0].rating}
                  
                  />
-                <div class="flex flex-col p-2 gap-5 lg:p-5 lg:w-2/3 lg:flex-row  ">
+                <div class="shadow-lg shadow-gray-600 flex flex-col bg-white border-t-2 p-2 gap-5 lg:p-5 lg:w-2/3 lg:flex-row  ">
                     
                     <div className=" p-2 rounded space-y-2 lg:w-1/2 ">
                         <h1 className="text-2xl font-thin">About this product</h1>
-                        <p class="font-bold text-sm text-gray-200 italic h-1/3 lg:overflow-auto lg:h-48">
+                        <p class="font-bold text-sm text-black italic h-1/3 lg:overflow-auto lg:h-48">
                         {itemDetail[0]?.description}
                         </p>
                     </div>

@@ -23,7 +23,7 @@ function App() {
     <Router>
 
       <Navtab />
-      <div className="min-w-full  bg-gradient-to-b from-gray-700 to-black text-white">
+      <div className="min-w-full bg-gray-200">
         <Routes>
           <Route path="/" element={<Newhome />} />
           <Route path="/cart" element={<Cart />} />

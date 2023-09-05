@@ -3,10 +3,12 @@ import CurrentPage from "./CurrentPage";
 import { useState } from "react";
 export default function Tabs({items, handlePage, page}) {
 
+    
+
 
     return (
         <div className="bg-gray-800 text-white space-y-5 ">
-            <div className="flex relative justify-around py-2 shadow-lg shadow-purple-700">
+            <div className="flex relative justify-around py-2 ">
                 <div>
                     <button 
                     name="men's clothing"

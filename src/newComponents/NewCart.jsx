@@ -18,10 +18,10 @@ export default function NewCart({cart, handleCart}) {
         {!isShow ?  
         <div  onClick={() => setIsShow(!isShow)} className='text-black rounded-xl flex  items-center animate-bounce'>
                   <h1 className='text-sm  bg-red-500 p-1 text-white rounded-xl'>{cart?.length}</h1>
-                  <i class="fa-solid fa-cart-shopping text-2xl text-purple-500"></i> 
+                  <i class="fa-solid fa-cart-shopping text-2xl text-black"></i> 
           </div>
           :
-          <div className="text-white p-4 border-2 border-purple-600 sticky top-70 right-0  h-1/2 overflow-y-auto bg-gray-700 shadow-inner shadow-purple-400 rounded
+          <div className="text-white p-4 border-2 border-gray-200 fixed top-70 right-0  h-1/2 overflow-y-auto bg-gray-700  rounded
           lg:w-1/4 lg:p-3 lg:right-10
           ">
             <div className='flex justify-between '>
@@ -33,7 +33,7 @@ export default function NewCart({cart, handleCart}) {
              <div className='lg:flex lg:flex-wrap'>
              {cart?.map((items) => (
               <div className='border my-1 p-5 flex justify-around rounded bg-white text-black
-                lg:w-2/3 lg:my-1 lg:mx-auto lg:h-72 lg:flex-col 
+                lg:w-2/3 lg:my-1 lg:mx-auto lg:h-82 lg:flex-col 
               '>
                   <div className='flex justify-between'>
                     <div>

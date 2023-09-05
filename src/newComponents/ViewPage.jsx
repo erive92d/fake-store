@@ -60,7 +60,7 @@ export default function ViewPage({products}) {
             {products 
             && products.map((product) => (
                 
-                <div key={product.id} className='border shadow-lg hover:ease-out hover:duration-300 shadow-purple-300  w-2/3 rounded-lg p-2 my-2 bg-white 
+                <div key={product.id} className='border  hover:ease-out hover:duration-300   w-2/3 rounded-lg p-2 my-2 bg-white 
                 lg:flex lg:flex-col lg:m-3 lg:w-1/4
                 '>
                         <div className='flex justify-between  lg:h-20'>

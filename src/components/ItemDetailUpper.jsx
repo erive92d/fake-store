@@ -23,8 +23,9 @@ export default function ItemDetailUpper({item, title, id, price, image, rating})
 
 
     return (
-        <div className="flex flex-col lg:w-2/3 ">
-            {cart?.length !== 0 ? <div className="flex justify-end ">
+        <div className="flex flex-col lg:w-2/3 bg-white shadow-lg shadow-gray-600">
+            {cart?.length !== 0 ? 
+            <div className="right-10 fixed">
                 <NewCart cart={cart} />
             </div> : null}
             
@@ -34,7 +35,7 @@ export default function ItemDetailUpper({item, title, id, price, image, rating})
                         
                         <NewRating rating={rating} />
                         <a href="#">
-                            <h5 class="text-xl font-semibold tracking-tight text-white ">{title}</h5>
+                            <h5 class="text-xl font-semibold tracking-tight text-black ">{title}</h5>
                         </a>
                         <p class="font-bold text-2xl text-green-500 p-2 font-mono lg:text-3xl">
                             ${price}
