@@ -34,7 +34,7 @@ export default function CatCar() {
 
   return (
     <div className='relative md:flex md:w-full md:flex-wrap lg:w-1/2 '>
-
+    
       <div className='md:w-1/2 md:p-2 md:h-100 lg:p-0'>
 
         <Carousel leftControl={<i class="fa-solid fa-arrow-left"></i>}

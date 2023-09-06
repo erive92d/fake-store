@@ -13,9 +13,17 @@ import NewCart from "./components/NewCart.jsx";
 import New from "./pages/New.jsx";
 import CheckoutForm from "./pages/CheckoutForm.jsx";
 import Complete from "./pages/Complete.jsx";
+import { getSavedIds } from "./utils/localStorage.js";
+import { useEffect , useState} from "react";
 
 function App() {
   window.document.title = "Sahara"
+ 
+
+
+
+
+
   return (
 
     <Router>
