@@ -14,11 +14,11 @@ import New from "./pages/New.jsx";
 import CheckoutForm from "./pages/CheckoutForm.jsx";
 import Complete from "./pages/Complete.jsx";
 import { getSavedIds } from "./utils/localStorage.js";
-import { useEffect , useState} from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   window.document.title = "Sahara"
- 
+
 
 
 
@@ -29,7 +29,7 @@ function App() {
     <Router>
 
       <Navtab />
-      <div className="min-w-full bg-gray-300 p-2">
+      <div className="min-w-full bg-gray-300">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />

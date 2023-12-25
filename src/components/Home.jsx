@@ -12,14 +12,16 @@ import Featured from "../pages/Featured";
 import CarouselItems from "../pages/Carousel";
 import CatCar from "../pages/CatCar";
 import NewCart from "./NewCart";
+import CategoryTabs from "../newpages/Products/CategoryTabs";
 export default function Home() {
+    const [category, setCategory] = useState("electronics")
 
     const [items, setItems] = useState([])
     useEffect(() => {
-        allProducts()
+        getCategory(category)
             .then((res) => res.json())
             .then((data) => setItems(data))
-    }, [])
+    }, [category])
 
     if (!items[0]) {
         return (
@@ -36,16 +38,16 @@ export default function Home() {
         )
     }
 
-
-
-    // const featuredItem = items?.filter((prod) => prod.id === Math.floor(Math.random()*20))
-    //     console.log(featuredItem)
+    const handleCategory = (e) => {
+        e.preventDefault()
+        setCategory(e.target.value)
+    }
     return (
         <div className="my-5 lg:flex lg:p-5 rounded">
-
-            <Featured featuredItem={items} />
+            <CategoryTabs handleCategory={handleCategory} category={category} />
+            {/* <Featured featuredItem={items} /> */}
             {/* <CarouselItems items={items}/> */}
-            <CatCar items={items} />
+            {/* <CatCar items={items} /> */}
 
         </div>
     )
