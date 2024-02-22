@@ -45,8 +45,8 @@ export default function Home() {
     return (
         <div className="my-5 lg:flex lg:p-5 rounded">
             <CategoryTabs handleCategory={handleCategory} category={category} />
-            {/* <Featured featuredItem={items} /> */}
-            {/* <CarouselItems items={items}/> */}
+            <Featured featuredItem={items} />
+            <CarouselItems items={items} />
             {/* <CatCar items={items} /> */}
 
         </div>
