@@ -111,8 +111,10 @@ export const allProducts = () => {
     return fetch(`https://fakestoreapi.com/products/`);
 };
 
-export const singleProduct = (query) => {
-    return fetch(`https://fakestoreapi.com/products/${query}`);
+export const singleProduct = async (query) => {
+
+    const res = await fetch(`https://fakestoreapi.com/products/${query}`);
+    return await res.json()
 };
 
 export const getCategory = (query) => {
