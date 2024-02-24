@@ -1,19 +1,18 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Navtab } from "./components/Navtab";
 import Login from "./components/Login.jsx"
-
 import Order from "./pages/Order.jsx";
 import Signup from "./components/Signup.jsx";
-import ItemDetail from "./components/ItemDetail.jsx";
 import Footer from "./components/Footer.jsx";
-import New from "./pages/New.jsx";
 import CheckoutForm from "./pages/CheckoutForm.jsx";
 import Complete from "./pages/Complete.jsx";
-import { getSavedIds } from "./utils/localStorage.js";
-import { useEffect , useState} from "react";
-import Newhome from "./pages/Newhome.jsx";
-import Cart from "./components/Cart"
+import Home from "./Ncomponents/Home.jsx";
+import NavigationBar from "./Ncomponents/NavigationBar";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+import ViewProduct from "./Ncomponents/productComps/ViewProduct";
+import CartComp from "./Ncomponents/CartComp.jsx";
+import { CartProvider } from "./context/CartContext.jsx";
+const queryClient = new QueryClient()
 
 function App() {
   window.document.title = "Sahara"
@@ -21,23 +20,25 @@ function App() {
   return (
 
     <Router>
-
-      <Navtab />
-      <div className="min-w-full bg-gray-200">
-        <Routes>
-          <Route path="/" element={<Newhome />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/order" element={<Order />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/item/:itemId" element={< ItemDetail />} />
-          <Route path="/newcart" element={<New />} />
-          <Route path="/checkout" element={<CheckoutForm />} />
-          <Route path="/complete" element={<Complete />} />
-        </Routes>
-
-      </div>
-      <Footer />
+      <CartProvider>
+        <NavigationBar />
+        <div className="min-w-full bg-white text-black">
+          <QueryClientProvider client={queryClient}>
+            <Routes>
+              {/* <Route path="/product" element={<ViewProduct />} /> */}
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/order" element={<Order />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/item/:id" element={< ViewProduct />} />
+              <Route path="/cart" element={<CartComp />} />
+              <Route path="/checkout" element={<CheckoutForm />} />
+              <Route path="/complete" element={<Complete />} />
+            </Routes>
+          </QueryClientProvider>
+        </div>
+        <Footer />
+      </CartProvider>
     </Router>
 
   );

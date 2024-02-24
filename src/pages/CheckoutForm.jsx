@@ -52,7 +52,7 @@ export default function CheckoutForm() {
 
 
             // localStorage.setItem("order", JSON.stringify(orderDetail))
-            console.log(orderDetail)
+            console.log(orderDetail, "@")
             setOrderDetail(
                 {
                     fname: "",
@@ -85,7 +85,6 @@ export default function CheckoutForm() {
                         </label>
                     </div>
                     <input
-                     
                         id="small"
                         sizing="sm"
                         type="name"

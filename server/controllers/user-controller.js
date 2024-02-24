@@ -1,7 +1,7 @@
 // import user model
 const { User, Order, Review } = require("../models");
 // import sign token function from auth
-const { signToken } = require("../utils/auth");
+const signToken = require("../utils/auth");
 
 module.exports = {
   //get all users
@@ -61,6 +61,8 @@ module.exports = {
     if (!user) {
       return res.status(400).json({ message: "Can't find this user" });
     }
+
+
 
     const correctPw = await user.isCorrectPassword(body.password);
 
