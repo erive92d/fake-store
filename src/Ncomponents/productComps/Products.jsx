@@ -10,7 +10,7 @@ export default function Products({ products }) {
                     products.map((product) => (
                         <div className="lg:w-2/4 p-8 px-2 flex flex-col justify-center border items-center gap-4" key={product.id}>
                             {/* <NewRating rating={product.rating} /> */}
-                            <img src={product.image} className="w-1/2 h-60 lg:w-96 lg:h-96"></img>
+                            <img src={product.image} className="w-1/2 md:w-96 md:h-96 h-60 lg:w-96 lg:h-96"></img>
                             <Link
                                 className="font-bold px-4"
                                 to={`/item/${product.id}`}
