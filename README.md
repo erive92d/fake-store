@@ -5,6 +5,7 @@ Welcome to Sahara Store, your ultimate destination for all your shopping needs!
 
 Sahara Store is an e-commerce project built with Vite, React, and Node.js Express, featuring the DaisyUI framework. Users can browse through a wide range of products and seamlessly add or remove items to their cart. The project utilizes local storage to enhance user experience by persisting cart items even after the page is refreshed.
 
+https://sahara-store.herokuapp.com/
 
 <img width="1495" alt="Screenshot 2024-02-25 at 6 21 45 AM" src="https://github.com/erive92d/fake-store/assets/110507887/f596463f-9442-4254-9300-fe2b8e438694">
 
