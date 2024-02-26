@@ -4,17 +4,32 @@ import { useParams } from 'react-router-dom';
 import CartContext from '../../context/CartContext';
 import QueryItemId from '../../utils/QueryItemId';
 import { Link } from 'react-router-dom';
+
+const Toast = ({ message }) => {
+    return (
+        <div className="fixed bottom-4 right-4 border bg-white p-4 text-orange-600 ">
+            {message}
+        </div>
+    );
+};
+
+
+
 const ProductOptions = ({ item }) => {
+    const [isToastVisible, setIsToastVisible] = useState(false);
+
     const { addItemToCart, cartItems } = useContext(CartContext);
     const [size, setSize] = useState('');
     const [error, setError] = useState("")
     const [quantity, setQuantity] = useState(1)
-
+    const [loading, setLoading] = useState(false)
     //check if the item is already in the cart
     const itemIndex = cartItems.findIndex(cart => cart.item.id === item.id && cart.size === size)
     const itemInCart = cartItems[itemIndex]
 
     const handleAddToCartClick = () => {
+        setIsToastVisible(true);
+
         //We will check if the item is from clothing, which needs to fill out the size
         const isClothes = item.category === "men's clothing" || item.category === "women's clothing"
 
@@ -24,10 +39,17 @@ const ProductOptions = ({ item }) => {
                 size,
                 quantity
             };
-            addItemToCart(newItem);
+
+            setIsToastVisible(true);
+
+            setTimeout(() => {
+                setIsToastVisible(false);
+                addItemToCart(newItem)
+                // Add your actual logic to add the item to the cart here
+            }, 2000);
             setError("")
             //if the item is not from clothing, sizing is not necesarry
-        } else if (!isClothes) {
+        } else if (!isClothes && quantity > 0) {
             const newItem = {
                 item: item,
                 quantity
@@ -41,8 +63,6 @@ const ProductOptions = ({ item }) => {
 
     const handleQuantity = (e) => {
         e.preventDefault()
-        if (e.target.value > 10) {
-        }
         setQuantity(parseInt(e.target.value))
     }
 
@@ -84,7 +104,12 @@ const ProductOptions = ({ item }) => {
                     </Link>
                 </div>
                 :
-                <button className='btn btn-ghost text-white bg-orange-600' onClick={handleAddToCartClick}>Add to Cart</button>
+                <button className='btn btn-ghost text-white bg-orange-600' onClick={handleAddToCartClick}>
+                    Add to cart
+                    {isToastVisible && <Toast message="Item added to cart!" />}
+                </button>
+
+
             }
         </div>
     );

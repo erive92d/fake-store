@@ -6,8 +6,8 @@ export default function NavigationBar() {
     const { cartItems } = useContext(CartContext);
 
     return (
-        <div className="text-2xl bg-white border-b-2 text-black py-6 flex items-center justify-between px-16">
-            <a href="/" className="font-bold">Sahara Store</a>
+        <div className="text-2xl bg-white border-b-2 text-black py-10 flex items-center justify-between px-16">
+            <a href="/" className="text-4xl font-bold">Sahara Store</a>
             <div>
                 <ul className="flex text-orange-500 gap-4">
                     {/* <li>
@@ -23,8 +23,8 @@ export default function NavigationBar() {
                                 <i class="fa-solid fa-cart-shopping"></i>
                             </div>
                             <ul tabIndex={0} className="dropdown-content z-10 bg-white text-black menu p-2 shadow rounded-box w-52">
-                                {cartItems && cartItems.map((cartItem) => (
-                                    <li className="border-b" key={cartItem.item.id}>
+                                {cartItems && cartItems.map((cartItem, index) => (
+                                    <li className="border-b" key={index}>
                                         <h1>{cartItem.item.title}</h1>
                                     </li>
                                 ))}
