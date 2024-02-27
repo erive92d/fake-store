@@ -3,7 +3,11 @@ import React, { createContext, useState, useEffect } from 'react';
 
 const CartContext = createContext();
 
+
 export const CartProvider = ({ children }) => {
+
+    const [isLoading, setIsLoading] = useState(false)
+
     const [cartItems, setCartItems] = useState(() => {
         const storedCartItems = localStorage.getItem('cartItems');
         return storedCartItems ? JSON.parse(storedCartItems) : [];
@@ -17,6 +21,7 @@ export const CartProvider = ({ children }) => {
         const existingItemIndex = cartItems.findIndex(
             (cartItem) => cartItem.item.id === item.item.id && cartItem.size === item.size
         );
+        setIsLoading(true)
 
         if (existingItemIndex !== -1) {
             const currentQuantity = cartItems[existingItemIndex].quantity;
@@ -24,10 +29,16 @@ export const CartProvider = ({ children }) => {
             // If item already exists, update its quantity by adding the new quantity
             const updatedCartItems = [...cartItems];
             updatedCartItems[existingItemIndex].quantity += updatedQuantity;
-            setCartItems(updatedCartItems);
+            setTimeout(() => {
+                setCartItems(updatedCartItems);
+                setIsLoading(false)
+            }, 2000)
         } else {
             // If item doesn't exist, add it to the cart
-            setCartItems([...cartItems, item]);
+            setTimeout(() => {
+                setCartItems([...cartItems, item]);
+                setIsLoading(false)
+            }, 2000)
         }
     };
 
@@ -42,7 +53,7 @@ export const CartProvider = ({ children }) => {
     };
 
     return (
-        <CartContext.Provider value={{ cartItems, addItemToCart, removeItemFromCart, clearCart, setCartItems }}>
+        <CartContext.Provider value={{ cartItems, addItemToCart, isLoading, removeItemFromCart, clearCart, setCartItems }}>
             {children}
         </CartContext.Provider>
     );

@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import CartContext from '../context/CartContext';
 
 const CartComp = () => {
-    const { cartItems, setCartItems, removeItemFromCart } = useContext(CartContext);
+    const { cartItems, setCartItems, removeItemFromCart, clearCart } = useContext(CartContext);
 
     const handleIncrementQuantity = (itemId, size) => {
         const updatedCartItems = cartItems.map(item =>
@@ -38,6 +38,7 @@ const CartComp = () => {
 
     return (
         <div className='flex min-h-screen flex-col w-4/5 m-auto'>
+            <button onClick={() => clearCart()} className='btn btn-ghost btn-outline'>Clear cart</button>
             {cartItems.length === 0 ?
                 <div className='mx-auto p-8'>
                     <h1 className='text-2xl font-bold'>Cart is empty</h1>
