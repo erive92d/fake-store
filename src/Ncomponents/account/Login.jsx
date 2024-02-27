@@ -1,7 +1,7 @@
 import auth from "../../utils/auth"
 
-import { createUser, getProductsFromDB, loginUser } from "../../utils/API"
-import { useEffect, useState } from "react"
+import { loginUser } from "../../utils/API"
+import { useState } from "react"
 
 const errorHandler = (message) => {
     return (
@@ -30,7 +30,6 @@ export default function Login() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-
         try {
             const response = await loginUser(userForm)
             if (!response.ok) {

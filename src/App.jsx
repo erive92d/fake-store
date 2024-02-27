@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from "./Ncomponents/Account/Login.jsx";
+import Login from "./Ncomponents/account/Login.jsx";
 import Order from "./pages/Order.jsx";
 import Signup from "./components/Signup.jsx";
 import Footer from "./components/Footer.jsx";
