@@ -3,19 +3,15 @@ import { allProducts } from "../utils/API"
 import Tabs from "./Tabs"
 import Loading from "./Loading"
 import Products from "./productComps/Products"
+import customQuery from "../utils/useQueries"
 
 export default function Home() {
 
-    const [items, setItems] = useState([])
     const [page, setPage] = useState("men's clothing")
 
-    useEffect(() => {
-        allProducts()
-            .then((res) => res.json())
-            .then((data) => setItems(data))
-    }, [])
+    const { data: items, isLoading } = customQuery("products", allProducts)
 
-    if (!items[0]) {
+    if (isLoading) {
         return (
             <Loading />
         )

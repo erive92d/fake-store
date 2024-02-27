@@ -7,16 +7,18 @@ export default function NavigationBar() {
 
     return (
         <div className="text-2xl bg-white border-b-2 text-black py-10 flex items-center justify-between px-16">
-            <a href="/" className="text-4xl font-bold">Sahara Store</a>
+            <a href="/" className="text-4xl  font-bold">Sahara Store</a>
             <div>
-                <ul className="flex text-orange-500 gap-4">
-                    {/* <li>
+                <ul className="flex text-purple-900 gap-4">
+                    <li>
                         {auth.loggedIn() ?
                             <button onClick={() => auth.logout()}>Logout</button>
                             :
-                            <a href="/login">Login</a>
+                            <a href="/login">
+                                <i class="fa-solid fa-user">
+                                </i>                            </a>
                         }
-                    </li> */}
+                    </li>
                     <li>
                         <div className="dropdown dropdown-end">
                             <div tabIndex={0} role="button" className=" ">

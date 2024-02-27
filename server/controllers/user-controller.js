@@ -1,7 +1,7 @@
 // import user model
 const { User, Order, Review } = require("../models");
 // import sign token function from auth
-const signToken = require("../utils/auth");
+const { signToken } = require("../utils/auth");
 
 module.exports = {
   //get all users
@@ -58,19 +58,18 @@ module.exports = {
     const user = await User.findOne({
       $or: [{ username: body.username }, { email: body.email }],
     });
+
     if (!user) {
-      return res.status(400).json({ message: "Can't find this user" });
+      return res.status(400).json({ message: "Email cannot be found" });
     }
-
-
 
     const correctPw = await user.isCorrectPassword(body.password);
 
     if (!correctPw) {
-      return res.status(400).json({ message: "Wrong password!" });
+      return res.status(401).json({ message: "Wrong password!" });
     }
     const token = signToken(user);
-    res.json({ token, user });
+    res.json({ user, token });
   },
   // save a book to a user's `savedBooks` field by adding it to the set (to prevent duplicates)
   // user comes from `req.user` created in the auth middleware function

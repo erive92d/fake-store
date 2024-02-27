@@ -12,7 +12,7 @@ export default function Products({ products }) {
                             <img src={product.image} className="w-1/2 md:w-96 md:h-96 h-60 lg:w-2/4 lg:h-96"></img>
                             <Link
                                 className="font-bold px-4"
-                                to={`/item/${product.id}`}
+                                to={`/products/${product._id}`}
                             >
                                 {product.title}
 

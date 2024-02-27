@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from "./components/Login.jsx"
+import Login from "./Ncomponents/Account/Login.jsx";
 import Order from "./pages/Order.jsx";
 import Signup from "./components/Signup.jsx";
 import Footer from "./components/Footer.jsx";
@@ -30,7 +30,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/order" element={<Order />} />
               <Route path="/signup" element={<Signup />} />
-              <Route path="/item/:id" element={< ViewProduct />} />
+              <Route path="/products/:productId" element={< ViewProduct />} />
               <Route path="/cart" element={<CartComp />} />
               <Route path="/checkout" element={<CheckoutForm />} />
               <Route path="/complete" element={<Complete />} />

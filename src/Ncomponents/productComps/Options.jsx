@@ -1,8 +1,6 @@
 // ProductOptions.js
 import React, { useContext, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import CartContext from '../../context/CartContext';
-import QueryItemId from '../../utils/QueryItemId';
 import { Link } from 'react-router-dom';
 
 const Toast = ({ message }) => {
@@ -92,12 +90,12 @@ const ProductOptions = ({ item }) => {
                         You have {itemInCart.quantity + " "}
                         in
                     </span>
-                    <Link className='btn btn-ghost bg-orange-500 text-white' to="/cart">
+                    <Link className='btn btn-ghost bg-purple-900 text-white' to="/cart">
                         <i class=" fa-solid text-xl fa-cart-shopping"></i>
                     </Link>
                 </div>
                 :
-                <button disabled={isLoading} className='btn btn-ghost text-white bg-orange-600' onClick={handleAddToCartClick}>
+                <button disabled={isLoading} className='btn btn-ghost text-white bg-purple-900' onClick={handleAddToCartClick}>
                     {isLoading ? "Adding to cart" : "Add to cart"}
                 </button>
 

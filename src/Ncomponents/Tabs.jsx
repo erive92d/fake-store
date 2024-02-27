@@ -8,7 +8,7 @@ export default function Tabs({ items, handlePage, page }) {
                     <button
                         name="men's clothing"
                         onClick={handlePage}
-                        className={page === "men's clothing" ? 'underline text-orange-500 underline-offset-4' : ' font-thin'}
+                        className={page === "men's clothing" ? 'underline text-purple-900 underline-offset-4' : ' font-thin'}
                     >
                         Mens
                     </button>
@@ -16,7 +16,7 @@ export default function Tabs({ items, handlePage, page }) {
                 <div>
                     <button
                         onClick={handlePage}
-                        className={page === "women's clothing" ? 'underline text-orange-500 underline-offset-4 ' : ' font-thin'}
+                        className={page === "women's clothing" ? 'underline text-purple-900 underline-offset-4 ' : ' font-thin'}
                         name="women's clothing">
                         Womens
                     </button>
@@ -24,7 +24,7 @@ export default function Tabs({ items, handlePage, page }) {
                 <div>
                     <button
                         onClick={handlePage}
-                        className={page === 'jewelery' ? 'underline text-orange-500 underline-offset-4 ' : ' font-thin'}
+                        className={page === 'jewelery' ? 'underline text-purple-900 underline-offset-4 ' : ' font-thin'}
                         name="jewelery">
                         Jewelry
                     </button>
@@ -32,7 +32,7 @@ export default function Tabs({ items, handlePage, page }) {
                 <div>
                     <button
                         onClick={handlePage}
-                        className={page === 'electronics' ? 'underline text-orange-500 underline-offset-4 ' : ' font-thin'}
+                        className={page === 'electronics' ? 'underline text-purple-900 underline-offset-4 ' : ' font-thin'}
                         name="electronics">
                         Electronics
                     </button>

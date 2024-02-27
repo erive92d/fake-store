@@ -1,12 +1,13 @@
 import { useParams } from "react-router-dom";
 import Loading from "../Loading";
 import ProductComp from "./ProductComp";
-import QueryItemId from "../../utils/QueryItemId";
+import customQuery from "../../utils/useQueries";
+import { singleProduct } from "../../utils/API";
 
 export default function ViewProduct() {
 
-    const { id } = useParams()
-    const { product, isLoading } = QueryItemId(id)
+    const { productId } = useParams()
+    const { data: product, isLoading } = customQuery("product", singleProduct, productId)
 
     return (
         <div>
