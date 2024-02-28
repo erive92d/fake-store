@@ -1,5 +1,5 @@
 // import user model
-const { User, Order, Review } = require("../models");
+const { User } = require("../models");
 // import sign token function from auth
 const { signToken } = require("../utils/auth");
 
@@ -26,10 +26,9 @@ module.exports = {
         .status(400)
         .json({ message: "Cannot find a user with this id!" });
     }
-    // console.log(foundUser);
     res.json(foundUser);
   },
-  // create a user, sign a token, and send it back (to client/src/components/SignUpForm.js)
+
   async createUser({ body }, res) {
 
     try {
@@ -48,8 +47,7 @@ module.exports = {
       return res.status(560).json(error);
     }
   },
-  // login a user, sign a token, and send it back (to client/src/components/LoginForm.js)
-  // {body} is destructured req.body
+
   async login({ body }, res) {
     const user = await User.findOne({
       $or: [{ username: body.username }, { email: body.email }],
@@ -67,8 +65,7 @@ module.exports = {
     const token = signToken(user);
     res.json({ user, token });
   },
-  // save a book to a user's `savedBooks` field by adding it to the set (to prevent duplicates)
-  // user comes from `req.user` created in the auth middleware function
+
   async saveProduct({ user, body }, res) {
     try {
       const updatedUser = await User.findOneAndUpdate(
@@ -96,51 +93,5 @@ module.exports = {
     }
     return res.json(updatedUser);
   },
-  async makeReview({ user = null, body, params }, res) {
-    console.log(user, "@user");
 
-    const userReview = await User.findOneAndUpdate(
-      {
-        $or: [
-          { _id: user ? user._id : params.id },
-          { username: body.username },
-        ],
-      },
-      {
-        $addToSet: {
-          review: { productId: params.productId, textBody: body.textBody },
-        },
-      },
-      {
-        new: true,
-      }
-    );
-
-    if (!userReview) {
-      return res.status(404).json({ message: "Couldn't make a review" });
-    }
-    return res.json(userReview);
-  },
-  async addOrder({ user = null, body }, res) {
-    console.log(body)
-    const userFound = await User.findOneAndUpdate(
-      {
-        _id: user._id
-      },
-      {
-        $addToSet: { orders: body }
-      },
-      {
-        new: true
-      }
-    )
-
-    if (!userFound) {
-      return false
-    }
-    // console.log(userFound)
-
-    return res.json(userFound)
-
-  }
 };

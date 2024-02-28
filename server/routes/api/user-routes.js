@@ -6,8 +6,6 @@ const {
   deleteProduct,
   login,
   allUsers,
-  makeReview,
-  addOrder,
 } = require("../../controllers/user-controller");
 
 // import middleware
@@ -27,8 +25,7 @@ router.route("/me").get(authMiddleware, getSingleUser);
 router
   .route("/products/:productId")
   .delete(authMiddleware, deleteProduct)
-  .post(authMiddleware, makeReview);
 
-router.route("/order").post(authMiddleware, addOrder)
+// router.route("/order").post(authMiddleware, addOrder)
 
 module.exports = router;

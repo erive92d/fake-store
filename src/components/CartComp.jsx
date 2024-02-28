@@ -37,7 +37,7 @@ const CartComp = () => {
 
 
     return (
-        <div className='flex min-h-screen flex-col w-4/5 m-auto'>
+        <div className=' flex min-h-screen flex-col w-4/5 m-auto'>
             {cartItems.length === 0 ?
                 <div className='mx-auto p-8'>
                     <h1 className='text-2xl font-bold'>Cart is empty</h1>

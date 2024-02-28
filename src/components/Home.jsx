@@ -6,10 +6,9 @@ import Products from "./productComps/Products"
 import customQuery from "../utils/useQueries"
 
 export default function Home() {
+    const { data: items, isLoading } = customQuery("products", allProducts())
 
     const [page, setPage] = useState("men's clothing")
-
-    const { data: items, isLoading } = customQuery("products", allProducts())
 
     if (isLoading) {
         return (

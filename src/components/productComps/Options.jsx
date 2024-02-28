@@ -37,6 +37,9 @@ const ProductOptions = ({ item }) => {
 
             setIsToastVisible(true)
             addItemToCart(newItem)
+            setTimeout(() => {
+                setIsToastVisible(false)
+            }, 2000)
             setError("")
             //if the item is not from clothing, sizing is not necesarry
         } else if (!isClothes && quantity > 0) {

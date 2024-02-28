@@ -2,6 +2,7 @@ import auth from "../utils/auth";
 import { useContext } from "react";
 import CartContext from "../context/CartContext";
 import { Link } from "react-router-dom";
+import CartDrawer from "./cartcomps/CartDrawer";
 export default function NavigationBar() {
     const { cartItems } = useContext(CartContext);
 
@@ -20,7 +21,8 @@ export default function NavigationBar() {
                         }
                     </li>
                     <li>
-                        <div className="dropdown dropdown-end">
+                        <CartDrawer />
+                        {/* <div className="dropdown dropdown-end">
                             <div tabIndex={0} role="button" className=" ">
                                 <i className="fa-solid fa-cart-shopping"></i>
                             </div>
@@ -36,7 +38,7 @@ export default function NavigationBar() {
                                     </Link>
                                 </li>
                             </ul>
-                        </div>
+                        </div> */}
                     </li>
                 </ul>
             </div>

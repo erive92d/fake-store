@@ -5,7 +5,7 @@ module.exports = {
     async allProducts(req, res) {
         try {
 
-            const products = await Product.find();
+            const products = await Product.find({});
             if (!products) {
                 return res.status(403).json({ error: 'Products not found' });
             }
