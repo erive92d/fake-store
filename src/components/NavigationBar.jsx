@@ -15,14 +15,14 @@ export default function NavigationBar() {
                             <button onClick={() => auth.logout()}>Logout</button>
                             :
                             <a href="/login">
-                                <i class="fa-solid fa-user">
+                                <i className="fa-solid fa-user">
                                 </i>                            </a>
                         }
                     </li>
                     <li>
                         <div className="dropdown dropdown-end">
                             <div tabIndex={0} role="button" className=" ">
-                                <i class="fa-solid fa-cart-shopping"></i>
+                                <i className="fa-solid fa-cart-shopping"></i>
                             </div>
                             <ul tabIndex={0} className="dropdown-content z-10 bg-white text-black menu p-2 shadow rounded-box w-52">
                                 {cartItems && cartItems.map((cartItem, index) => (

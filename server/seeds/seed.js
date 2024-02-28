@@ -12,6 +12,7 @@ connection.once("open", async () => {
     // Drop existing users
     const response = await axios.get('https://fakestoreapi.com/products/');
     const products = response.data
+    await Product.deleteMany({});
     await Product.insertMany(products)
     await User.deleteMany({});
     await User.create(userData);

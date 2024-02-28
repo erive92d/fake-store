@@ -22,7 +22,6 @@ export const CartProvider = ({ children }) => {
             (cartItem) => cartItem.item.id === item.item.id && cartItem.size === item.size
         );
         setIsLoading(true)
-
         if (existingItemIndex !== -1) {
             const currentQuantity = cartItems[existingItemIndex].quantity;
             const updatedQuantity = updateCallback(currentQuantity);
@@ -52,8 +51,14 @@ export const CartProvider = ({ children }) => {
         setCartItems([]);
     };
 
+    const totalPrice = () => {
+        const itemPrices = cartItems.map(item => item.item.price * item.quantity)
+        const total = itemPrices.reduce((acc, curr) => acc + curr, 0);
+        return total
+    }
+
     return (
-        <CartContext.Provider value={{ cartItems, addItemToCart, isLoading, removeItemFromCart, clearCart, setCartItems }}>
+        <CartContext.Provider value={{ cartItems, addItemToCart, totalPrice, isLoading, removeItemFromCart, clearCart, setCartItems }}>
             {children}
         </CartContext.Provider>
     );

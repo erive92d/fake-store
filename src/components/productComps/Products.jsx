@@ -8,7 +8,7 @@ export default function Products({ products }) {
             <div className="flex flex-col lg:flex-row lg:flex-wrap justify-around">
                 {products ?
                     products.map((product) => (
-                        <div className="lg:w-2/4 p-14 px-4 flex flex-col items-center gap-4" key={product.id}>
+                        <div className="lg:w-2/4 p-14 px-4 flex flex-col items-center gap-4" key={product._id}>
                             <img src={product.image} className="w-1/2 md:w-96 md:h-96 h-60 lg:w-2/4 lg:h-96"></img>
                             <Link
                                 className="font-bold px-4"

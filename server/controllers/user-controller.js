@@ -31,24 +31,20 @@ module.exports = {
   },
   // create a user, sign a token, and send it back (to client/src/components/SignUpForm.js)
   async createUser({ body }, res) {
+
     try {
+      const userCheck = await User.findOne({ email: body.email })
+      if (userCheck) {
+        return res.status(400).json({ message: "User email is already taken" });
+      }
       const user = await User.create(body);
 
       if (!user) {
-        return res.status(400).json({ message: "Something is wrong!" });
+        return res.status(401).json({ message: "Something is wrong!" });
       }
-
       const token = signToken(user);
       res.json({ token, user });
     } catch (error) {
-      console.log(Object.keys(error));
-      console.log(error.keyValue.username);
-      if (error.keyValue.username) {
-        return res.status(561).json({ msg: "Username already exist." });
-      }
-      if (error.keyValue.email) {
-        return res.status(562).json({ msg: "Email already exist." });
-      }
       return res.status(560).json(error);
     }
   },

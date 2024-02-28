@@ -1,16 +1,16 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from "./Ncomponents/account/Login.jsx";
+import Login from "./components/account/Login.jsx";
 import Order from "./pages/Order.jsx";
-import Signup from "./components/Signup.jsx";
+import Signup from "./components/account/Signup.jsx";
 import Footer from "./components/Footer.jsx";
 import CheckoutForm from "./pages/CheckoutForm.jsx";
 import Complete from "./pages/Complete.jsx";
-import Home from "./Ncomponents/Home.jsx";
-import NavigationBar from "./Ncomponents/NavigationBar";
+import Home from "./components/Home.jsx";
+import NavigationBar from "./components/NavigationBar.jsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
-import ViewProduct from "./Ncomponents/productComps/ViewProduct";
-import CartComp from "./Ncomponents/CartComp.jsx";
+import ViewProduct from "./components/productComps/ViewProduct.jsx";
+import CartComp from "./components/CartComp.jsx";
 import { CartProvider } from "./context/CartContext.jsx";
 const queryClient = new QueryClient()
 

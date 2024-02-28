@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Toast = ({ message }) => {
     return (
-        <div className="fixed bottom-4 right-4 border bg-white p-4 text-orange-600 ">
+        <div className="fixed bottom-4 right-4 border bg-white p-4 text-purple-900 ">
             {message}
         </div>
     );
@@ -15,7 +15,6 @@ const Toast = ({ message }) => {
 
 const ProductOptions = ({ item }) => {
     const [isToastVisible, setIsToastVisible] = useState(false);
-
     const { addItemToCart, cartItems, isLoading } = useContext(CartContext);
     const [size, setSize] = useState('');
     const [error, setError] = useState("")

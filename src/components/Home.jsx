@@ -9,7 +9,7 @@ export default function Home() {
 
     const [page, setPage] = useState("men's clothing")
 
-    const { data: items, isLoading } = customQuery("products", allProducts)
+    const { data: items, isLoading } = customQuery("products", allProducts())
 
     if (isLoading) {
         return (
