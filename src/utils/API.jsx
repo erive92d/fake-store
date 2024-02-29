@@ -120,16 +120,13 @@ export const getProductsFromDB = async () => {
     }
 }
 
-export const allProducts = async (token, query) => {
+export const allProducts = async () => {
     try {
-        return fetch('/api/order', {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-                authorization: `Bearer ${token}`
-            },
-            body: JSON.stringify(query)
-        })
+        const res = await fetch("/api/products")
+        if (!res.ok) {
+            console.log("something went wrong")
+        }
+        return await res.json()
     } catch (error) {
         console.error(error)
     }
