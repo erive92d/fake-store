@@ -1,15 +1,19 @@
 import auth from "../utils/auth"
 
 import { createUser, loginUser } from "../utils/API"
-import { useEffect, useState } from "react"
-
+import { useEffect, useState, createContext, useContext } from "react"
+import { CartContext } from "../App"
 export default function Login() {
+
+    const cart = useContext(CartContext)
 
     const [userForm, setUserForm] = useState({
         email: "",
         username: "",
         password: ""
     })
+
+    console.log(cart.cart)
 
     const handleChange = (e) => {
         const { name, value } = e.target;

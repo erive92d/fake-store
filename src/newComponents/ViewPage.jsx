@@ -6,45 +6,28 @@ import { useState, useEffect } from 'react'
 import NewaddCart from './NewaddCart'
 import NewCart from './NewCart'
 import NewRating from './NewRating'
+import { motion } from 'framer-motion'
+import BuyItem from './BuyItem'
 export default function ViewPage({products}) {
 
     const [cart, setCart] = useState(getSavedIds())
-
+    const [itemClick, setItemClick] = useState({
+        show: false,
+        item: ""
+    })
     useEffect(() => {
         saveId(cart)
     }, [cart])
 
-    const handleCart = (prod, multiplier) => {
-        const newProd = {
-            ...prod, count: multiplier
-        }
-
-        if(cart.find(item => item.id === newProd.id)) {
-            console.log("its here")
-            if(newProd.multiplier !== 0) {
-                console.log("its not zero")
-                let array = [...cart]
-                const indexItem = array.findIndex(itm => itm.id === newProd.id)
-                array[indexItem].count = multiplier
-                setCart(array)
-            } else {
-                
-                const deleteItem = cart.filter(item => item.id !== newProd.id)
-                console.log(deleteItem)
-                setCart(deleteItem)
-            }
-            
-        } else {
-            setCart([...cart, newProd])
-
-        }
+    const handleCart = (prod) => {
+        setItemClick({ show: true, item: prod})
+        setCart([...cart, prod])
     }
 
     const handleRemove = ( prod) => {
         const updated = cart.filter(item => item.id !== prod.id)
         setCart(updated)
       }
-
 
   return (
     <div className='lg:flex lg:flex-col lg:h-screen'>
@@ -56,11 +39,17 @@ export default function ViewPage({products}) {
         </div>
         <div className='flex flex-col items-center 
         lg:flex-row lg:flex-wrap lg:p-10 lg:justify-center 
-        '>
+        '>  
+        {itemClick.show ? <div className='fixed h-1/4 w-3/4 rounded bg-gray-300'>
+                  <BuyItem itemClick={itemClick} setItemClick={setItemClick} handleCart={handleCart}/>
+             </div> : null }
+            
             {products 
             && products.map((product) => (
                 
-                <div key={product.id} className='border  hover:ease-out hover:duration-300   w-2/3 rounded-lg p-2 my-2 bg-white 
+                <div 
+                
+                key={product.id} className='border  hover:ease-out hover:duration-300   w-2/3 rounded-lg p-2 my-2 bg-white 
                 lg:flex lg:flex-col lg:m-3 lg:w-1/4
                 '>
                         <div className='flex justify-between  lg:h-20'>
