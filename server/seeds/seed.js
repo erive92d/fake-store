@@ -1,8 +1,8 @@
 require("dotenv").config();
 const connection = require("../config/connection");
-const { User } = require("../models");
+const { User, Product } = require("../models");
 const userData = require("./userData.json");
-
+const axios = require("axios")
 connection.on("error", (err) => err);
 
 connection.once("open", async () => {
@@ -10,8 +10,11 @@ connection.once("open", async () => {
 
   try {
     // Drop existing users
+    const response = await axios.get('https://fakestoreapi.com/products/');
+    const products = response.data
+    await Product.deleteMany({});
+    await Product.insertMany(products)
     await User.deleteMany({});
-
     await User.create(userData);
   } catch (err) {
     console.error(err);

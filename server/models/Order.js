@@ -1,26 +1,26 @@
-const { Schema, model } = require("mongoose");
-const productSchema = require("./Product");
+const mongoose = require('mongoose');
 
-// This is a subdocument schema, it won't become its own model but we'll use it as the schema for the User's `rsvp` in User.js
-const orderSchema = new Schema({
-    fname: {
-        type: String,
-        required: true,
-    },
-    address: {
-        type: String,
-        required: true,
-    },
-    payment: {
-        type: String,
+const orderSchema = new mongoose.Schema({
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
         required: true
     },
-    products: [productSchema],
-    orderBy: {
+    products: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Product',
+        required: true
+    }],
+    total: {
+        type: Number,
+        required: true
+    },
+    createdAt: {
         type: Date,
-        default: Date.now,
-        get: (timestamp) => dateFormat(timestamp),
+        default: Date.now
     }
 });
 
-module.exports = orderSchema
+const Order = mongoose.model('Order', orderSchema);
+
+module.exports = Order;

@@ -107,12 +107,68 @@ export const userOrder = (token, items) => {
     }
 }
 
-export const allProducts = () => {
-    return fetch(`https://fakestoreapi.com/products/`);
+export const getProductsFromDB = async () => {
+    try {
+        const res = await fetch("/api/products")
+        if (!res.ok) {
+            console.log("something went wrong")
+        }
+        return await res.json()
+
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+export const allProducts = async () => {
+    try {
+        const res = await fetch("/api/products")
+        if (!res.ok) {
+            console.log("something went wrong")
+        }
+        return await res.json()
+    } catch (error) {
+        console.error(error)
+    }
 };
 
-export const singleProduct = (query) => {
-    return fetch(`https://fakestoreapi.com/products/${query}`);
+export const singleProduct = async (productId) => {
+    try {
+        const res = await fetch(`/api/products/${productId}`)
+        if (!res.ok) {
+            console.log("something went wrong")
+        }
+        const product = await res.json()
+        return product
+    } catch (error) {
+        console.error(error)
+    }
+};
+export const fetchByCategory = async (cat) => {
+    try {
+        const res = await fetch(`/api/products/c/${cat}`)
+        
+        if (!res.ok) {
+            console.log("something went wrong")
+        }
+        const product = await res.json()
+        return product
+    } catch (error) {
+        console.error(error)
+    }
+};
+
+export const addOrder = async (query) => {
+    try {
+        const res = await fetch(`/api/order`)
+        if (!res.ok) {
+            console.log("something went wrong")
+        }
+        const product = await res.json()
+        return product
+    } catch (error) {
+        console.error(error)
+    }
 };
 
 export const getCategory = (query) => {

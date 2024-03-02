@@ -2,8 +2,10 @@ const { Schema, model } = require("mongoose");
 
 // This is a subdocument schema, it won't become its own model but we'll use it as the schema for the User's `rsvp` in User.js
 const productSchema = new Schema({
-
-
+  id: {
+    type: Number,
+    required: true
+  },
   title: {
     type: String,
     required: true,
@@ -12,10 +14,9 @@ const productSchema = new Schema({
     type: Number,
     required: true,
   },
-  category: [{
+  category: {
     type: String,
-  }
-  ],
+  },
   description: {
     type: String,
   },
@@ -32,4 +33,7 @@ const productSchema = new Schema({
   }
 });
 
-module.exports = productSchema
+
+const Product = model("Product", productSchema);
+
+module.exports = Product;
