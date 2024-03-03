@@ -4,10 +4,10 @@ import { Link, useParams } from "react-router-dom"
 import { fetchByCategory } from "../../utils/API"
 import customQuery from "../../utils/useQueries"
 
-export default function Products({products}) {
+export default function Products({ products }) {
 
     return (
-        <div className="min-h-screen lg:w-4/5 lg:mx-auto py-12">
+        <div className="min-h-screen lg:w-4/5 lg:mx-auto py-12 border rounded-lg my-6">
             <div className="flex flex-col lg:flex-row lg:flex-wrap justify-around">
                 {products ?
                     products.map((product) => (

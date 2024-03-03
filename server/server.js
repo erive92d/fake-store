@@ -22,11 +22,12 @@ if (process.env.NODE_ENV === "production") {
     }
     next();
   });
+  app.use(express.static(path.join(__dirname, "../dist")));
 }
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../dist/index.html"));
+// });
 
 app.use(routes);
 

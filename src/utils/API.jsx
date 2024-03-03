@@ -107,29 +107,12 @@ export const userOrder = (token, items) => {
     }
 }
 
-export const getProductsFromDB = async () => {
-    try {
-        const res = await fetch("/api/products")
-        if (!res.ok) {
-            console.log("something went wrong")
-        }
-        return await res.json()
-
-    } catch (error) {
-        console.error(error)
-    }
-}
-
 export const allProducts = async () => {
-    try {
-        const res = await fetch("/api/products")
-        if (!res.ok) {
-            console.log("something went wrong")
-        }
-        return await res.json()
-    } catch (error) {
-        console.error(error)
+    const res = await fetch("/api/products")
+    if (!res.ok) {
+        throw new Error('Failed to fetch data');
     }
+    return await res.json()
 };
 
 export const singleProduct = async (productId) => {
@@ -144,10 +127,26 @@ export const singleProduct = async (productId) => {
         console.error(error)
     }
 };
+
+export const addToCart = async (items, token) => {
+    try {
+        return await fetch(`/api/order`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${token}`
+            },
+            body: JSON.stringify(items)
+        })
+    } catch (error) {
+        console.error(error)
+    }
+};
+
 export const fetchByCategory = async (cat) => {
     try {
         const res = await fetch(`/api/products/c/${cat}`)
-        
+
         if (!res.ok) {
             console.log("something went wrong")
         }

@@ -1,10 +1,9 @@
-const { Product } = require("../models");
+const { Product, Order } = require("../models");
 
 
 module.exports = {
     async allProducts(req, res) {
         try {
-
             const products = await Product.find({});
             if (!products) {
                 return res.status(403).json({ error: 'Products not found' });
@@ -38,7 +37,7 @@ module.exports = {
         try {
             // Extract the productId from the request params
             // Find the product by ID in the database
-            const product = await Product.find({category:categoryName});
+            const product = await Product.find({ category: categoryName });
             // If product is not found, return 404 Not Found
             if (!product) {
                 return res.status(404).json({ error: 'Product not found' });
@@ -51,4 +50,5 @@ module.exports = {
             res.status(500).json({ error: 'Internal Server Error' });
         }
     }
+
 }

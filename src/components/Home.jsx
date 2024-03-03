@@ -14,10 +14,9 @@ export default function Home() {
             <Loading />
         )
     }
-
     return (
         <div>
-            <Tab/>
+            <Tab />
             <Products products={items} />
         </div>
     )

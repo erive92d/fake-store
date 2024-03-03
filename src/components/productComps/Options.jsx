@@ -2,10 +2,11 @@
 import React, { useContext, useState } from 'react';
 import CartContext from '../../context/CartContext';
 import { Link } from 'react-router-dom';
+import AddButton from './AddButton';
 
 const Toast = ({ message }) => {
     return (
-        <div className="fixed bottom-4 right-4 border bg-white p-4 text-purple-900 ">
+        <div className="fixed bottom-4 right-4 border bg-white p-4 text-lime-900 ">
             {message}
         </div>
     );
@@ -19,26 +20,23 @@ const ProductOptions = ({ item }) => {
     const [size, setSize] = useState('');
     const [error, setError] = useState("")
     const [quantity, setQuantity] = useState(1)
+    const isClothes = item.category === "men's clothing" || item.category === "women's clothing"
     //check if the item is already in the cart
-    const itemIndex = cartItems.findIndex(cart => cart.item.id === item.id && cart.size === size)
+    const itemIndex = cartItems.findIndex(cart => (cart.item.id === item.id && cart.size === size) || (!isClothes && cart.item.id === item.id))
     const itemInCart = cartItems[itemIndex]
 
     const handleAddToCartClick = () => {
-
         //We will check if the item is from clothing, which needs to fill out the size
-        const isClothes = item.category === "men's clothing" || item.category === "women's clothing"
-
-        if (size && quantity > 0) {
+        if (isClothes && size && quantity > 0) {
             const newItem = {
                 item: item,
                 size,
                 quantity
             };
 
-            setIsToastVisible(true)
             addItemToCart(newItem)
             setTimeout(() => {
-                setIsToastVisible(false)
+                setIsToastVisible(true)
             }, 2000)
             setError("")
             //if the item is not from clothing, sizing is not necesarry
@@ -48,6 +46,9 @@ const ProductOptions = ({ item }) => {
                 quantity
             };
             addItemToCart(newItem);
+            setTimeout(() => {
+                setIsToastVisible(true)
+            }, 2000)
             setError("")
         } else {
             setError("Please select a size and quantity")
@@ -86,23 +87,22 @@ const ProductOptions = ({ item }) => {
                 />
             </div>
             {error && <h1 className='text-red-500'>{error}</h1>}
-            {itemInCart ?
+            <AddButton />
+            {/* {itemInCart ?
                 <div className='space-x-2'>
                     <span className='text-lg '>
                         You have {itemInCart.quantity + " "}
                         in
                     </span>
-                    <Link className='btn btn-ghost bg-purple-900 text-white' to="/cart">
+                    <Link className='btn btn-ghost bg-lime-900 text-white' to="/cart">
                         <i class=" fa-solid text-xl fa-cart-shopping"></i>
                     </Link>
                 </div>
                 :
-                <button disabled={isLoading} className='btn btn-ghost text-white bg-purple-900' onClick={handleAddToCartClick}>
+                <button disabled={isLoading} className='btn btn-ghost text-white bg-lime-900' onClick={handleAddToCartClick}>
                     {isLoading ? "Adding to cart" : "Add to cart"}
                 </button>
-
-
-            }
+            } */}
             {isToastVisible && <Toast message="Item added to cart!" />}
 
         </div>

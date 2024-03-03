@@ -10,17 +10,16 @@ import Products from './Products'
 // }
 
 export default function Category() {
-    
-    const { categoryName } = useParams()
-    const { data:products, isLoading } = customQuery("category", fetchByCategory, categoryName)
 
-    if(isLoading) return <Loading/>
+  const { categoryName } = useParams()
+  const { data: products, isLoading } = customQuery("category", fetchByCategory, categoryName)
 
-    return (
-      <div>
-        <h1>{categoryName}</h1>
+  if (isLoading) return <Loading />
+
+  return (
+    <div>
       <Products products={products} />
-      </div>
-    )
-  
+    </div>
+  )
+
 }
