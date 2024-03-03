@@ -7,7 +7,7 @@ export default function NavigationBar() {
     const { cartItems } = useContext(CartContext);
 
     return (
-        <div className="text-2xl text-black py-8 w-4/5 mx-auto ">
+        <div className="text-2xl text-white bg-lime-900 py-8 px-10 ">
             <a href="/" className="text-4xl  font-bold">Sahara Store</a>
         </div>
     )
