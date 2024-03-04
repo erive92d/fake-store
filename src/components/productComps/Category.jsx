@@ -1,7 +1,7 @@
 import React from 'react'
 import Loading from "../Loading"
 import { useParams } from "react-router-dom"
-import { fetchByCategory } from "../../utils/API"
+import { fetchByCategory } from '../../utils/apicalls/productapi'
 import customQuery from "../../utils/useQueries"
 import Products from './Products'
 
@@ -16,10 +16,7 @@ export default function Category() {
 
   if (isLoading) return <Loading />
 
-  return (
-    <div>
-      <Products products={products} />
-    </div>
-  )
+  return <Products products={products} />
+
 
 }

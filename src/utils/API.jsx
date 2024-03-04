@@ -1,65 +1,43 @@
 import axios from 'axios'
-export const loginUser = (userData) => {
-    try {
-        return fetch('/api/users/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(userData),
-        });
-    } catch (error) {
-        console.log(error)
-    }
+// export const loginUser = (userData) => {
+//     try {
+//         return fetch('/api/users/login', {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//             },
+//             body: JSON.stringify(userData),
+//         });
+//     } catch (error) {
+//         console.log(error)
+//     }
 
-};
+// };
 
+// export const getMe = (token) => {
+//     try {
+//         return fetch('/api/users/me', {
+//             method: "GET",
+//             headers: {
+//                 'Content-Type': 'application/json',
+//                 authorization: `Bearer ${token}`
+//             }
+//         })
+//     } catch (err) {
+//         console.error(err)
+//     }
 
-export const saveProduct = (item, token) => {
-    return fetch(`/api/users`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-            authorization: `Bearer ${token}`
-        },
-        body: JSON.stringify(item)
-    })
-}
+// }
 
-export const deleteProduct = (productId, token) => {
-    return fetch(`/api/users/products/${productId}`, {
-        method: "DELETE",
-        headers: {
-            'Content-Type': 'application/json',
-            authorization: `Bearer ${token}`
-        }
-    })
-}
-
-export const getMe = (token) => {
-    try {
-        return fetch('/api/users/me', {
-            method: "GET",
-            headers: {
-                'Content-Type': 'application/json',
-                authorization: `Bearer ${token}`
-            }
-        })
-    } catch (err) {
-        console.error(err)
-    }
-
-}
-
-export const createUser = (data) => {
-    return fetch(`/api/users/`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data)
-    })
-}
+// export const createUser = (data) => {
+//     return fetch(`/api/users/`, {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify(data)
+//     })
+// }
 
 
 export const getAllUsers = () => {
@@ -107,69 +85,71 @@ export const userOrder = (token, items) => {
     }
 }
 
-export const allProducts = async () => {
-    const res = await fetch("/api/products")
-    if (!res.ok) {
-        throw new Error('Failed to fetch data');
-    }
-    return await res.json()
-};
+// export const allProducts = async () => {
+//     try {
+//         const res = await axios.get("/api/products")
+//         if (res.status !== 200) {
+//             throw new Error('Failed to fetch data');
+//         }
+//         return await res.data
+//     } catch (error) {
+//         console.log(error)
+//     }
 
-export const singleProduct = async (productId) => {
-    try {
-        const res = await fetch(`/api/products/${productId}`)
-        if (!res.ok) {
-            console.log("something went wrong")
-        }
-        const product = await res.json()
-        return product
-    } catch (error) {
-        console.error(error)
-    }
-};
+// };
 
-export const addToCart = async (items, token) => {
-    try {
-        return await fetch(`/api/order`, {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-                authorization: `Bearer ${token}`
-            },
-            body: JSON.stringify(items)
-        })
-    } catch (error) {
-        console.error(error)
-    }
-};
+// export const singleProduct = async (productId) => {
+//     try {
+//         const res = await axios.get(`/api/products/${productId}`)
+//         if (res.status !== 200) {
+//             console.log("something went wrong")
+//         }
+//         const product = await res.data
+//         return product
+//     } catch (error) {
+//         console.error(error)
+//     }
+// };
 
-export const fetchByCategory = async (cat) => {
-    try {
-        const res = await fetch(`/api/products/c/${cat}`)
+// export const getOrdersFromUser = async (token) => {
+//     const config = {
+//         headers: {
+//             Authorization: `Bearer ${token}`
+//         }
+//     };
+//     try {
+//         const response = await axios.get("/api/order", config)
+//         return response.data
+//     } catch (error) {
+//         console.log(error)
+//     }
+// }
 
-        if (!res.ok) {
-            console.log("something went wrong")
-        }
-        const product = await res.json()
-        return product
-    } catch (error) {
-        console.error(error)
-    }
-};
+// export const addToCart = async (items, token) => {
+//     try {
+//         return await fetch(`/api/order`, {
+//             method: "POST",
+//             headers: {
+//                 'Content-Type': 'application/json',
+//                 authorization: `Bearer ${token}`
+//             },
+//             body: JSON.stringify(items)
+//         })
+//     } catch (error) {
+//         console.error(error)
+//     }
+// };
 
-export const addOrder = async (query) => {
-    try {
-        const res = await fetch(`/api/order`)
-        if (!res.ok) {
-            console.log("something went wrong")
-        }
-        const product = await res.json()
-        return product
-    } catch (error) {
-        console.error(error)
-    }
-};
+// export const fetchByCategory = async (cat) => {
+//     try {
+//         const res = await fetch(`/api/products/c/${cat}`)
 
-export const getCategory = (query) => {
-    return fetch(`https://fakestoreapi.com/products/category/${query}`)
-}
+//         if (!res.ok) {
+//             console.log("something went wrong")
+//         }
+//         const product = await res.json()
+//         return product
+//     } catch (error) {
+//         console.error(error)
+//     }
+// };

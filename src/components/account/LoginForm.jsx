@@ -1,6 +1,5 @@
 import auth from "../../utils/auth"
-
-import { loginUser } from "../../utils/API"
+import { loginUser } from "../../utils/apicalls/userapi"
 import { useState } from "react"
 
 export const errorHandler = (message) => {
@@ -11,7 +10,7 @@ export const errorHandler = (message) => {
     )
 }
 
-export default function Login() {
+export default function LoginForm() {
 
     const [userForm, setUserForm] = useState({
         email: "",

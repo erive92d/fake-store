@@ -1,5 +1,4 @@
 import { useQuery } from '@tanstack/react-query';
-import { fetchByCategory } from './API';
 
 // Custom hook for fetching data
 const customQuery = (queryKey, fetchFunction, param = null) => {

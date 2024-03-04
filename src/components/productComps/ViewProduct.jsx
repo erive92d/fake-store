@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import Loading from "../Loading";
 import customQuery from "../../utils/useQueries";
-import { singleProduct } from "../../utils/API";
+import { singleProduct } from "../../utils/apicalls/productapi";
 import ProductDescription from "./SingleProducts/ProductDescription";
 import SizeSelector from "./SingleProducts/SizeSelector";
 import QuantitySelector from "./SingleProducts/QuantitySelector";

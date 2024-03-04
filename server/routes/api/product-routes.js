@@ -1,8 +1,10 @@
+const { addProductToCart } = require("../../controllers/product.controller");
 const {
     allProducts,
     singleProduct,
     fetchByCategory,
 } = require("../../controllers/product.controller");
+const { authMiddleware } = require("../../utils/auth");
 
 
 const router = require("express").Router();

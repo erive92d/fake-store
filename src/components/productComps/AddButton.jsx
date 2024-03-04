@@ -1,23 +1,26 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import auth from '../../utils/auth'
-import { addToCart } from '../../utils/API'
+import CartContext from '../../context/CartContext'
 
 export default function AddButton({ productId, size, quantity }) {
+    const { addItemToCart, loading } = useContext(CartContext)
     const token = auth.loggedIn() ? auth.getToken() : null
 
 
     const handleAddToCart = async () => {
+
         const items = {
-            productId, size, quantity
+            productId,
+            size,
+            quantity
+        }
+        try {
+            await addItemToCart(items)
+        } catch (error) {
+            console.log(error)
         }
 
-        const response = await addToCart(items, token)
-        console.log(response)
-        if (response) {
-            alert("Success")
-        }
     }
-
     if (!auth.loggedIn()) {
         return (
             <div className='my-4'>
@@ -28,7 +31,10 @@ export default function AddButton({ productId, size, quantity }) {
     }
     return (
         <div>
-            <button onClick={handleAddToCart} className='btn btn-ghost bg-lime-900 text-white'>Add to cart</button>
+            {loading ? <button disabled className='btn btn-ghost bg-lime-900 text-white'>Adding</button>
+                :
+                <button onClick={handleAddToCart} className='btn btn-ghost bg-lime-900 text-white'>Add to cart</button>
+            }
         </div>
     )
 }
