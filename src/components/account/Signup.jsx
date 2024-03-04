@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { createUser } from "../../utils/API";
 import auth from "../../utils/auth";
-import { errorHandler } from "./Login";
+import { errorHandler } from "./LoginForm";
+import { createUser } from "../../utils/apicalls/userapi";
 
 export default function Signup() {
     const [userForm, setUserForm] = useState({

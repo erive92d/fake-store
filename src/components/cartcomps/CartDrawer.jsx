@@ -5,7 +5,7 @@ import CartItems from './CartItems';
 
 export default function CartDrawer() {
 
-    const { cartItems, totalPrice } = useContext(CartContext);
+    const { cartItems } = useContext(CartContext);
 
     return (
         <div className="drawer drawer-end">
@@ -18,14 +18,14 @@ export default function CartDrawer() {
             </div>
             <div className="drawer-side">
                 <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
-                <ul className="menu p-4 w-80 min-h-full bg-white text-black">
+                <ul className="menu p-4 w-100 min-h-full bg-white text-black">
                     {/* Sidebar content here */}
-                    <li>
-                        <a className='bg-gray-200 text-xl font-bold rounded-none' href="/cart">Go to cart</a>
-                    </li>
-                    {cartItems.map((cart, index) => (
+                    {cartItems?.products?.map((cart, index) => (
                         <CartItems {...cart} key={index} />
                     ))}
+                    <li>
+                        <button disabled className='bg-gray-200 text-xl font-bold rounded-none'>Checkout coming soon..</button>
+                    </li>
                 </ul>
             </div>
         </div>

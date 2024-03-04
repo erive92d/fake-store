@@ -8,9 +8,10 @@ module.exports = {
             if (!products) {
                 return res.status(403).json({ error: 'Products not found' });
             }
-            res.json(products)
+            res.status(200).json(products)
         } catch (error) {
             console.error(error)
+            return res.status(500).json({ error: "Internal server error" })
         }
 
     },
@@ -25,7 +26,7 @@ module.exports = {
                 return res.status(404).json({ error: 'Product not found' });
             }
             // If product is found, return it as JSON response
-            res.json(product);
+            res.status(200).json(product)
         } catch (error) {
             // If there's an error, return 500 Internal Server Error
             console.error('Error fetching product:', error);

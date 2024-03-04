@@ -1,25 +1,25 @@
-import auth from "../utils/auth";
+import auth from "../../utils/auth";
 import { useContext } from "react";
-import CartContext from "../context/CartContext";
+import CartContext from "../../context/CartContext";
 import { Link } from "react-router-dom";
-import CartDrawer from "./cartcomps/CartDrawer";
+import CartDrawer from "../cartcomps/CartDrawer";
 
 export default function HeaderTop() {
-  return (
-    <div className="bg-white border-b-2 px-2 py-2">
-                <ul className="flex justify-between text-black gap-4 w-4/5 mx-auto">
-                    <li>
-                        {auth.loggedIn() ?
-                            <button onClick={() => auth.logout()}>Logout</button>
-                            :
-                            <a className="link-hover" href="/login">
-                                Login
-                          </a>
-                        }
-                    </li>
-                    <li>
-                        <CartDrawer />
-                        {/* <div className="dropdown dropdown-end">
+    return (
+        <div className="bg-white border-b-2 px-2 py-2">
+            <ul className="flex justify-between text-black gap-4 w-4/5 mx-auto">
+                <li>
+                    {auth.loggedIn() ?
+                        <button onClick={() => auth.logout()}>Logout</button>
+                        :
+                        <a className="link-hover" href="/login">
+                            Login
+                        </a>
+                    }
+                </li>
+                <li>
+                    <CartDrawer />
+                    {/* <div className="dropdown dropdown-end">
                             <div tabIndex={0} role="button" className=" ">
                                 <i className="fa-solid fa-cart-shopping"></i>
                             </div>
@@ -36,9 +36,9 @@ export default function HeaderTop() {
                                 </li>
                             </ul>
                         </div> */}
-                    </li>
-                </ul>
-           
-    </div>
-  )
+                </li>
+            </ul>
+
+        </div>
+    )
 }

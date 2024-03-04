@@ -1,8 +1,8 @@
-import auth from "../utils/auth";
+import auth from "../../utils/auth";
 import { useContext } from "react";
-import CartContext from "../context/CartContext";
+import CartContext from "../../context/CartContext";
 import { Link } from "react-router-dom";
-import CartDrawer from "./cartcomps/CartDrawer";
+import CartDrawer from "../cartcomps/CartDrawer";
 export default function NavigationBar() {
     const { cartItems } = useContext(CartContext);
 
