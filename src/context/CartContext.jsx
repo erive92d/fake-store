@@ -30,11 +30,14 @@ export const CartProvider = ({ children }) => {
     }, []);
 
     const addItemToCart = async (items) => {
+        setLoading(true)
         try {
             await addToCart(items, token)
             await fetchItemsFromCart()
         } catch (error) {
             console.error(error)
+        } finally {
+            setLoading(false)
         }
     }
 

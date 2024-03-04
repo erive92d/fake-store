@@ -18,14 +18,15 @@ export default function CartDrawer() {
             </div>
             <div className="drawer-side">
                 <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
-                <ul className="menu p-4 w-100 min-h-full bg-white text-black">
+                <ul className="menu p-4 w-80 min-h-full bg-white text-black">
+                    <li>
+                        <button disabled className='border-b-2 text-xl font-bold rounded-none'>Checkout coming soon..</button>
+                    </li>
                     {/* Sidebar content here */}
                     {cartItems?.products?.map((cart, index) => (
                         <CartItems {...cart} key={index} />
                     ))}
-                    <li>
-                        <button disabled className='bg-gray-200 text-xl font-bold rounded-none'>Checkout coming soon..</button>
-                    </li>
+
                 </ul>
             </div>
         </div>
