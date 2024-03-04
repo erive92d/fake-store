@@ -31,19 +31,24 @@ export default function ViewProduct() {
 
     return (
         <div
-            className="min-h-screen flex flex-col
-            w-96 mx-auto
+            className="min-h-screen
+            flex flex-col
+            mx-auto
             lg:w-5/6
             lg:flex-row
-            lg:justify-around
-            border-2
+            lg:justify-center
+            lg:items-center
             rounded-xl
             my-6
+            px-4
+            lg:px-0
         ">
-            <div className="w-96 py-6 px-4 lg:h-40">
-                <img src={product.image} />
+            <div className="
+            lg:w-2/3 py-6 px-4">
+                <img className="w-96 lg:h-80" src={product.image} />
             </div>
-            <div className="lg:w-1/2 py-6 px-6 flex flex-col gap-4">
+            <div className="lg:w-4/5
+              py-6 flex flex-col gap-4">
                 <ProductDescription
                     title={product.title}
                     rating={product.rating}
