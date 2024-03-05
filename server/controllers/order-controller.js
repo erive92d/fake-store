@@ -3,7 +3,9 @@ const { Product, Order } = require("../models");
 module.exports = {
     async getOrdersFromUser({ user = null, body }, res) {
         try {
-            const order = await Order.findOne({ user: user._id }).populate('products.product')
+            const order = await Order.findOne({ user: user._id })
+              .populate("products.product")
+              .populate("user");
             if (!order) {
                 return res.status(500).json({ message: "User order could not be found" })
             }

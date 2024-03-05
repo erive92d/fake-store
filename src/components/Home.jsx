@@ -2,7 +2,7 @@ import { allProducts } from "../utils/apicalls/productapi"
 import Loading from "./Loading"
 import Products from "./productComps/Products"
 import customQuery from "../utils/useQueries"
-import Tab from "./header/Tab"
+import Tab from "./navbar/Tab"
 
 export default function Home() {
 

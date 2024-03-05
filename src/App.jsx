@@ -6,13 +6,12 @@ import Signup from "./components/account/Signup.jsx";
 import Footer from "./components/Footer.jsx";
 import CheckoutForm from "./pages/CheckoutForm.jsx";
 import Home from "./components/Home.jsx";
-import NavigationBar from "./components/header/NavigationBar.jsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import ViewProduct from "./components/productComps/ViewProduct.jsx";
 import CartComp from "./components/CartComp.jsx";
 import { CartProvider } from "./context/CartContext.jsx";
-import HeaderTop from "./components/header/HeaderTop.jsx";
 import Category from "./components/productComps/Category.jsx";
+import NewNav from "./components/navbar/NewNav.jsx";
 const queryClient = new QueryClient()
 
 function App() {
@@ -23,10 +22,9 @@ function App() {
 
     <Router>
       <CartProvider>
-
-        <HeaderTop />
-        <NavigationBar />
-
+        <NewNav />
+        {/* <HeaderTop />
+        <NavigationBar /> */}
         <div className="min-w-full bg-white text-black">
           <QueryClientProvider client={queryClient}>
             <Routes>

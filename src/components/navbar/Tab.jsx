@@ -5,9 +5,9 @@ export default function Tab() {
 
   return (
     <div className='border-t-2'>
-      <ul className='flex justify-around mx-auto w-3/4 py-2'>
+      <ul className='flex justify-around items-center mx-auto w-3/4 py-2'>
         <li>
-          <a className=' link-hover' href="/">Home</a>
+          <a className='link-hover' href="/">Home</a>
         </li>
         <li>
           <Link to={"/c/men's clothing"} className='link-hover' >
