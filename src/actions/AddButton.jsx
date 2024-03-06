@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
-import auth from '../../utils/auth'
-import CartContext from '../../context/CartContext'
+import auth from '../utils/auth'
+import CartContext from '../context/CartContext'
 
 export default function AddButton({ productId, size, quantity }) {
     const { addItemToCart, loading } = useContext(CartContext)

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 export default function Products({ products }) {
 
     return (
-        <div className="min-h-screen lg:w-4/5 lg:mx-auto py-12  rounded-lg my-6">
+        <div className="min-h-screen lg:w-4/5 lg:mx-auto py-12 my-6">
             <div className="flex flex-col lg:flex-row lg:flex-wrap justify-around">
                 {products ?
                     products.map((product) => (
