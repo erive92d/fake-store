@@ -2,7 +2,10 @@
 import React, { createContext, useState, useEffect } from 'react';
 import { addToCart, removeItemFromOrder } from '../utils/apicalls/orderapi';
 import { getOrdersFromUser } from '../utils/apicalls/orderapi';
+import Toast from '../utils/Toast';
 import auth from '../utils/auth';
+import { toast } from 'react-toastify';
+
 const CartContext = createContext();
 
 
@@ -31,8 +34,14 @@ export const CartProvider = ({ children }) => {
     const addItemToCart = async (items) => {
         setLoading(true)
         try {
-            await addToCart(items, token)
-            await fetchItemsFromCart()
+            const response = await addToCart(items, token)
+            if (response.ok) {
+                toast.success(<Toast message="Item added to cart" />, {
+                    position: 'top-center',
+                    autoClose: 2000 // Close the toast after 2 seconds
+                });
+                await fetchItemsFromCart()
+            }
         } catch (error) {
             console.error(error)
         } finally {

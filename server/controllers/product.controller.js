@@ -19,8 +19,17 @@ module.exports = {
         try {
             // Extract the productId from the request params
             const productId = req.params.productId;
+            const productTitle = req.params.productTitle
+
+            let product;
+
             // Find the product by ID in the database
-            const product = await Product.findById(productId);
+            if (productId) {
+                product = await Product.findById(productId);
+            } else if (productTitle) {
+                const partialTitle = new RegExp(req.params.productTitle, 'i'); // Case-insensitive search
+                product = await Product.find({ title: { $regex: partialTitle } });
+            }
             // If product is not found, return 404 Not Found
             if (!product) {
                 return res.status(404).json({ error: 'Product not found' });

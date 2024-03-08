@@ -15,7 +15,22 @@ export const allProducts = async () => {
 
 export const singleProduct = async (productId) => {
     try {
-        const res = await axios.get(`/api/products/${productId}`)
+        const res = await axios.get(`/api/products/id/${productId}`)
+        if (res.status !== 200) {
+            console.log("something went wrong")
+        }
+        const product = await res.data
+        return product
+    } catch (error) {
+        console.error(error)
+    }
+};
+
+export const searchProduct = async (productTitle) => {
+
+
+    try {
+        const res = await axios.get(`/api/products/title/${productTitle}`)
         if (res.status !== 200) {
             console.log("something went wrong")
         }

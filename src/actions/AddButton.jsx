@@ -4,11 +4,9 @@ import CartContext from '../context/CartContext'
 
 export default function AddButton({ productId, size, quantity }) {
     const { addItemToCart, loading } = useContext(CartContext)
-    const token = auth.loggedIn() ? auth.getToken() : null
 
 
     const handleAddToCart = async () => {
-
         const items = {
             productId,
             size,

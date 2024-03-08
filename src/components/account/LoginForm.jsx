@@ -55,7 +55,7 @@ export default function LoginForm() {
                 <input onChange={handleChange} name="email" className="rounded bg-gray-100" type="email" placeholder="Email Address" />
                 <input onChange={handleChange} name="password" className="rounded bg-gray-100" type="password" placeholder="Password" />
                 <div>
-                    <button onClick={handleSubmit} className="btn btn-ghost bg-green-900 text-white">Login</button>
+                    <button onClick={handleSubmit} className="btn btn-ghost bg-black text-white">Login</button>
                     <a href="/signup" className="link:hover mx-4">Signup</a>
                 </div>
                 {error && errorHandler(error)}
