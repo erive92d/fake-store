@@ -5,10 +5,11 @@ export default function CartItems({ ...cart }, key) {
 
     const { removeFromCart, loading } = useContext(CartContext)
 
+
     return (
         <li className="border-b" key={key}>
             <div className=''>
-                <span className='font-bold'>{cart.product.title}</span>
+                <span className='font-bold'>{cart.product.title} x {cart.quantity}</span>
                 {loading ?
                     <button
                         disabled

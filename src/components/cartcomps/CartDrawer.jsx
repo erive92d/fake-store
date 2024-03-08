@@ -6,7 +6,7 @@ import CartItems from './CartItems';
 export default function CartDrawer() {
 
     const { cartItems } = useContext(CartContext);
-
+    console.log(cartItems)
     return (
         <div className="drawer drawer-end">
             <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />

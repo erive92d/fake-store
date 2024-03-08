@@ -5,7 +5,7 @@ import { singleProduct } from "../../utils/apicalls/productapi";
 import ProductDescription from "./SingleProducts/ProductDescription";
 import SizeSelector from "./SingleProducts/SizeSelector";
 import QuantitySelector from "./SingleProducts/QuantitySelector";
-import AddButton from "./AddButton";
+import AddButton from "../../actions/AddButton";
 import { useState } from "react";
 
 export default function ViewProduct() {
