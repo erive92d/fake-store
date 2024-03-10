@@ -16,7 +16,7 @@ export const getOrdersFromUser = async (token) => {
 
 export const addToCart = async (items, token) => {
     try {
-        return await fetch(`/api/order`, {
+        const res = await fetch(`/api/order`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -24,8 +24,13 @@ export const addToCart = async (items, token) => {
             },
             body: JSON.stringify(items)
         })
+        if (!res.ok) {
+            const { message } = await res.json()
+            return message
+        }
+        return res
     } catch (error) {
-        console.error(error)
+        console.error(error.message)
     }
 };
 

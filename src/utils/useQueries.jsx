@@ -9,7 +9,6 @@ const customQuery = (queryKey, fetchFunction, param = null) => {
         queryFn
     })
 
-
     return { data, isLoading }
 
 }

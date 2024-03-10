@@ -12,6 +12,7 @@ const CartContext = createContext();
 export const CartProvider = ({ children }) => {
     const [loading, setLoading] = useState(false)
     const [cartItems, setCartItems] = useState([])
+    const [errorCart, setErrorCart] = useState("")
     const token = auth.loggedIn() ? auth.getToken() : null
 
     const fetchItemsFromCart = async () => {
@@ -40,7 +41,10 @@ export const CartProvider = ({ children }) => {
                     position: 'top-center',
                     autoClose: 2000 // Close the toast after 2 seconds
                 });
+                setErrorCart("")
                 await fetchItemsFromCart()
+            } else {
+                setErrorCart(response)
             }
         } catch (error) {
             console.error(error)
@@ -48,7 +52,6 @@ export const CartProvider = ({ children }) => {
             setLoading(false)
         }
     }
-
 
     const removeFromCart = async (productId, size) => {
         setLoading(true);
@@ -68,7 +71,7 @@ export const CartProvider = ({ children }) => {
 
 
     return (
-        <CartContext.Provider value={{ cartItems, addItemToCart, loading, removeFromCart }}>
+        <CartContext.Provider value={{ cartItems, addItemToCart, loading, removeFromCart, errorCart }}>
             {children}
         </CartContext.Provider>
     );

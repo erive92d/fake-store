@@ -14,10 +14,9 @@ export default function ViewProduct() {
     const [quantity, setQuantity] = useState(1)
 
     const { productId } = useParams()
-    const { data: product, isLoading } = customQuery("product", singleProduct, productId)
+    const { data: product } = customQuery("product", singleProduct, productId)
 
-
-    if (isLoading) return <Loading />
+    if (!product) return <Loading />
 
     const isClothes = product.category === "men's clothing" || product.category === "women's clothing"
 
@@ -53,10 +52,11 @@ export default function ViewProduct() {
                     title={product.title}
                     rating={product.rating}
                     description={product.description}
+                    price={product.price}
                 />
                 {isClothes ? <SizeSelector handler={handleSizeChange} /> : null}
                 <QuantitySelector quantity={quantity} handler={handleQuantity} />
-                <AddButton productId={productId} size={size} quantity={quantity} />
+                <AddButton productId={productId} isClothes={isClothes} size={size} quantity={quantity} />
             </div>
 
 
