@@ -4,8 +4,8 @@ module.exports = {
     async getOrdersFromUser({ user = null, body }, res) {
         try {
             const order = await Order.findOne({ user: user._id })
-              .populate("products.product")
-              .populate("user");
+                .populate("products.product")
+                .populate("user");
             if (!order) {
                 return res.status(500).json({ message: "User order could not be found" })
             }
@@ -19,7 +19,10 @@ module.exports = {
         try {
             //Fetch the product from DB
             const product = await Product.findById(body.productId);
-
+            const isClothes = product.category === "men's clothing" || product.category === "women's clothing"
+            if (isClothes && !body.size) {
+                return res.status(404).json({ message: 'Select size' });
+            }
             //If Product could not be found, send Error
             if (!product) {
                 return res.status(404).json({ message: 'Product not found' });
@@ -55,7 +58,6 @@ module.exports = {
 
             //Apply the total to Order
             order.total = totalPrice;
-
             //Save the changes
             await order.save();
             res.status(201).json({ message: 'Item added to Order successfully', order });
